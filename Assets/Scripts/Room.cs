@@ -25,10 +25,10 @@ public class Room : MonoBehaviour
     {
     }
 
-    public void PlaceMachine(Machine machine)
+    public void PlaceMachine(MachineData machine)
     {
         if (HasMachine) return;
-        Machine = machine;        
+        Machine = Instantiate(machine.Prefab, this.transform).GetComponent<Machine>();
     }
 
     public void RemoveMachine()

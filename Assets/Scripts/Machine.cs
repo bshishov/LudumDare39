@@ -33,6 +33,11 @@ public class Machine : MonoBehaviour
 
     private float _statusTimer;
 
+    public bool HasEnoughResourcesToProduce
+    {
+        get { return true; }
+    }
+
     void Start()
     {
 
