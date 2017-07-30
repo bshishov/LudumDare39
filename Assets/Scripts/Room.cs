@@ -2,9 +2,9 @@
 
 public class Room : MonoBehaviour
 {
-    public bool HasEnhancement {  get { return Enhancement != null; } }
+    public bool HasMachine {  get { return Machine != null; } }
     
-    public Enhancement Enhancement;
+    public Machine Machine;
 
     void Start()
     {
@@ -14,14 +14,14 @@ public class Room : MonoBehaviour
     {
     }
 
-    public void PlaceEnhancement(Enhancement enhancement)
+    public void PlaceMachine(Machine machine)
     {
-        if (HasEnhancement) return;
-        Enhancement = enhancement;        
+        if (HasMachine) return;
+        Machine = machine;        
     }
 
-    public void RemoveEnchancement()
+    public void RemoveMachine()
     {
-        Enhancement = null;
+        Machine = null;
     }
 }

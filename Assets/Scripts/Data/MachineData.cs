@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Item", fileName = "Item")]
-public class EnhancementData : ScriptableObject
+public class MachineData : ScriptableObject
 {
     [Header("Visual")]
     public string Name;
