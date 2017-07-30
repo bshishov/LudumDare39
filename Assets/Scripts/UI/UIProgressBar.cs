@@ -19,7 +19,6 @@ public class UIProgressBar : MonoBehaviour
     {
         _fill = (RectTransform)transform.GetChild(0);
         _rectTransform = GetComponent<RectTransform>();
-        _image.GetComponent<Image>();
     }	
 	
 	void Update ()
@@ -39,11 +38,13 @@ public class UIProgressBar : MonoBehaviour
 
     public void Hide()
     {
+        _image = GetComponent<Image>();
         _image.CrossFadeAlpha(0f, 1f, false);
     }
 
     public void Show()
     {
+        _image = GetComponent<Image>();
         _image.CrossFadeAlpha(1f, 1f, false);
     }
 }

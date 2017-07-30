@@ -31,11 +31,14 @@ public class Room : MonoBehaviour
         if (HasMachine) return;
         Machine = Instantiate(machine.Prefab, this.transform).GetComponent<Machine>();
         GameManager.Instance.BuiltMachines.Add(machine);
+        Machine.Init();
+        Machine.Place();
     }
 
     public void RemoveMachine()
     {
-        Machine = null;
+        GameManager.Instance.BuiltMachines.Remove(Machine.MachineData);
+        Machine.Remove();
     }
 
     public void OnMouseClick()

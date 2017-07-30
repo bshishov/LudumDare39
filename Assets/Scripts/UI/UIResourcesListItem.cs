@@ -19,6 +19,6 @@ public class UIResourcesListItem : MonoBehaviour
     void Update()
     {
         var amount = GameManager.Instance.Resources[Resource];
-        _amountLabel.text = string.Format("{0.2F}", amount);
+        _amountLabel.text = string.Format("{0:F1}", amount);
     }	
 }

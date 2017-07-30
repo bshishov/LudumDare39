@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.UI;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 public class Machine : MonoBehaviour
 {
     public MachineData MachineData;
-    public UIProgressBar ProgressBar;
+    private UIProgressBar _progressBar;
 
     public enum Statuses
     {
@@ -33,9 +34,9 @@ public class Machine : MonoBehaviour
 
     private float _statusTimer;
 
-    void Start()
+    public void Init()
     {
-
+        _progressBar = UIManager.Instance.CreateProgressBar(gameObject);
     }
 
     void Update()
@@ -46,26 +47,38 @@ public class Machine : MonoBehaviour
                 if (TickTimer(MachineData.TimeToBuild))
                 {
                     _statusTimer = 0;
-                    Status = Statuses.Crafting;
+                    _progressBar.Hide();
+
+                    if (HasEnoughResourcesToProduce())
+                    {
+                        Status = Statuses.Crafting;
+                    }
+                    else
+                    {
+                        Status = Statuses.Idle;
+                    }
                 }
+                _progressBar.Value = _statusTimer / (MachineData.TimeToBuild);
                 break;
             case Statuses.Removing:
                 if (TickTimer(MachineData.TimeToDestroy))
                 {
                     _statusTimer = 0;
                     GameObject.Destroy(gameObject);
-                    ReturnResources();
+                    GainResources(MachineData.ReturnedResources);
+                    _progressBar.Hide();
                 }
+                _progressBar.Value = _statusTimer / (MachineData.TimeToBuild);
                 break;
             case Statuses.Crafting:
                 if (TickTimer(MachineData.TimeToProduce))
                 {
                     _statusTimer = 0;
-                    ProduceResources();
+                    GainResources(MachineData.OutResources);
 
                     if (HasEnoughResourcesToProduce())
                     {
-                        ConsumeResources();
+                        ConsumeResources(MachineData.InResources);
                     }
                     else
                     {
@@ -81,7 +94,7 @@ public class Machine : MonoBehaviour
                 if (HasEnoughResourcesToProduce())
                 {
                     Status = Statuses.Crafting;
-                    ConsumeResources();
+                    ConsumeResources(MachineData.InResources);
                     TickTimer(MachineData.TimeToProduce);
                 }
                 break;
@@ -90,7 +103,7 @@ public class Machine : MonoBehaviour
 
     private bool TickTimer(float time)
     {
-        _statusTimer += time / Time.deltaTime;
+        _statusTimer += Time.deltaTime;
         return _statusTimer >= time;
     }
 
@@ -100,31 +113,32 @@ public class Machine : MonoBehaviour
             MachineData.InResources.All(t => GameManager.Instance.HasResourceAmount(t));
     }
 
-    public void ProduceResources()
+    public void ConsumeResources(IEnumerable<ResourceAmount> resources)
     {
-        foreach (var resourceAmount in MachineData.OutResources)
-        {
-            GameManager.Instance.IncreaseResource(resourceAmount);
-        }
-    }
-
-    public void ConsumeResources()
-    {
-        foreach (var resourceAmount in MachineData.InResources)
+        foreach (var resourceAmount in resources)
         {
             GameManager.Instance.DecreaseResource(resourceAmount);
         }
     }
 
-    public void ReturnResources()
+    public void GainResources(IEnumerable<ResourceAmount> resources)
     {
-        foreach (var resourceAmount in MachineData.ReturnedResources)
+        foreach (var resourceAmount in resources)
         {
             GameManager.Instance.IncreaseResource(resourceAmount);
         }
-        foreach (var resourceAmount in MachineData.ReturnedResources.Where(t => t.Resource.ResourceType == ResourceData.ResourceTypes.Returnable))
-        {
-            // todo: return resources
-        }
+    }
+
+    public void Place()
+    {
+        _status = Statuses.Building;
+        _progressBar.Show();
+        ConsumeResources(MachineData.RequiredToBuildResources);
+    }
+
+    public void Remove()
+    {
+        _status = Statuses.Removing;
+        _progressBar.Show();
     }
 }

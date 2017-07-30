@@ -13,12 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 1324563685224396, guid: 39f87c47ffe2c0147931db55e96721e1, type: 2}
+  RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
-    Amount: 0
-  TimeToBuild: 0
+    Amount: 1
+  TimeToBuild: 5
+  AllowedRoomType: 0
+  ReturnedResources: []
   TimeToDestroy: 0
+  InResourcesRequired: []
   InResources: []
   OutResources: []
   TimeToProduce: 0

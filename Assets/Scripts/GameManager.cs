@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log(string.Format("Loaded {0} resources", resources.Length));
         foreach(var resource in resources)
         {
-            Resources.Add(resource, 0);
+            Resources.Add(resource, resource.BaseAmount);
         }
     }	
 	

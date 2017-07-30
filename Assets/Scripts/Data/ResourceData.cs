@@ -5,6 +5,7 @@ public class ResourceData : ScriptableObject
 {
     public string Name;
     public Sprite Icon;
+    public float BaseAmount;
 
     public enum ResourceTypes
     {
