@@ -14,11 +14,12 @@ public class UIFollowSceneObject : MonoBehaviour
         _main = Camera.main;
         var rectTransform = GetComponent<RectTransform>();
 
+        /*
         if (rectTransform != null)
         {
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
-        }
+        }*/
 	}	
 	
 	void Update ()
