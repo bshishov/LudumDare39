@@ -38,7 +38,7 @@ public class Room : MonoBehaviour
         Machine = null;
     }
 
-    public void OnClick()
+    public void OnMouseClick()
     {
         UIBuildingMenu.Instance.Show(this);
     }

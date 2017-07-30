@@ -9,9 +9,10 @@ public class GameManager : Singleton<GameManager>
 
     public List<MachineData> BuiltMachines = new List<MachineData>();
 
-	void Start ()
+	void Start()
     {
-        var resources = UnityEngine.Resources.LoadAll<ResourceData>("Resources"); 
+        var resources = UnityEngine.Resources.LoadAll<ResourceData>("Res"); 
+        Debug.Log(string.Format("Loaded {0} resources", resources.Length));
         foreach(var resource in resources)
         {
             Resources.Add(resource, 0);

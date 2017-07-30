@@ -37,6 +37,8 @@ namespace Assets.Scripts.UI
                     _icons.Add(icon);
                 }
             }
+
+            Hide();
         }
 
         public void Hide()

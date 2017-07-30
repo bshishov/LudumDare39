@@ -7,9 +7,10 @@ public class UIResourcesList : MonoBehaviour
 {
     public GameObject ResourcesListItemPrefab;    
 	
-	void Start ()
-    {   
-		foreach(var resource in GameManager.Instance.Resources.Keys)
+	void Start()
+    {
+        var resources = UnityEngine.Resources.LoadAll<ResourceData>("Res");
+        foreach (var resource in resources)
         {
             var itemObject = (GameObject)Instantiate(ResourcesListItemPrefab, transform);
             var item = itemObject.GetComponent<UIResourcesListItem>();
