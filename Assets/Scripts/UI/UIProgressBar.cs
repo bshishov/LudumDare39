@@ -32,7 +32,7 @@ public class UIProgressBar : MonoBehaviour
         _oldValue = Mathf.Lerp(_oldValue, Value, Time.deltaTime * Speed);
         
         // SLOW
-        _fill.anchorMax = new Vector2(Mathf.Lerp(0, _rectTransform.anchorMax.x, _oldValue), _fill.anchorMax.y);          
+        _fill.anchorMax = new Vector2(Mathf.Lerp(0, _rectTransform.anchorMax.x, _oldValue) * 2, _fill.anchorMax.y);          
 
         // INSTANT (better replace with one width change
         //_fill.anchorMax = new Vector2(Mathf.Lerp(0, _rectTransform.anchorMax.x, Value), _fill.anchorMax.y);
