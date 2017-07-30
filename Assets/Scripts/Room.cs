@@ -6,6 +6,17 @@ public class Room : MonoBehaviour
     
     public Machine Machine;
 
+    public enum RoomTypes
+    {
+        InsideRoom,
+        OutsideRoom,
+        IceAsteroid,
+        GasCloud,
+        MineralAsteroid
+    }
+
+    public RoomTypes RoomType;
+
     void Start()
     {
     }

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Machine : MonoBehaviour
 {
     public MachineData MachineData;
+    public UIProgressBar ProgressBar;
 
     public enum Statuses
     {
@@ -41,15 +43,50 @@ public class Machine : MonoBehaviour
         switch (_status)
         {
             case Statuses.Building:
-                _statusTimer += this.MachineData.TimeToBuild / Time.deltaTime;
+                _statusTimer += MachineData.TimeToBuild / Time.deltaTime;
+                if (_statusTimer >= MachineData.TimeToBuild)
+                {
+                    _statusTimer = 0;
+                    Status = Statuses.Crafting;
+                }
                 break;
             case Statuses.Removing:
-                _statusTimer += this.MachineData.TimeToDestroy / Time.deltaTime;
+                _statusTimer += MachineData.TimeToDestroy / Time.deltaTime;
+                if (_statusTimer >= MachineData.TimeToDestroy)
+                {
+                    _statusTimer = 0;
+                    GameObject.Destroy(gameObject);
+                }
                 break;
             case Statuses.Crafting:
-                _statusTimer += this.MachineData.TimeToProduce / Time.deltaTime;
+                _statusTimer += MachineData.TimeToProduce / Time.deltaTime;
+                if (_statusTimer >= MachineData.TimeToProduce)
+                {
+                    _statusTimer = 0;
+                    foreach (var resourceAmount in MachineData.OutResources)
+                    {
+                        GameManager.Instance.IncreaseResource(resourceAmount);
+                    }
+                    if (MachineData.InResourcesRequired.Any(t => !GameManager.Instance.HasResourceAmount(t))) {
+                        Status = Statuses.Idle;
+                        break;
+                    }
+                    foreach (var resourceAmount in MachineData.InResources)
+                    {
+                        GameManager.Instance.DecreaseResource(resourceAmount);
+                    }
+                }
+                else
+                {
+                    _statusTimer += MachineData.TimeToProduce / Time.deltaTime;
+                }
                 break;
             case Statuses.Idle:
+                if (MachineData.InResourcesRequired.All(t => GameManager.Instance.HasResourceAmount(t)))
+                {
+                    Status = Statuses.Crafting;
+                    break;
+                }
                 break;
         }
     }

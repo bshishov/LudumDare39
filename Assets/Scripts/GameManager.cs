@@ -20,8 +20,18 @@ public class GameManager : Singleton<GameManager>
     {		
 	}
 
-    public void IncreaseResource(ResourceData resource, float amount)
+    public bool HasResourceAmount(ResourceAmount resource)
     {
-        Resources[resource] = amount + Resources[resource];
+        return Resources[resource.Resource] > resource.Amount;
+    }
+
+    public void DecreaseResource(ResourceAmount resource)
+    {
+        Resources[resource.Resource] = Resources[resource.Resource] - resource.Amount;
+    }
+
+    public void IncreaseResource(ResourceAmount resource)
+    {
+        Resources[resource.Resource] = resource.Amount + Resources[resource.Resource];
     }
 }
