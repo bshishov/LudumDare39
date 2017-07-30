@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class UIProgressBar : MonoBehaviour
 {
     [Range(0f,1f)]
@@ -13,7 +14,6 @@ public class UIProgressBar : MonoBehaviour
     RectTransform _fill;    
     private float _oldValue = 0f;
     private RectTransform _rectTransform;
-    private Image _image;
 
     void Start ()
     {
@@ -40,13 +40,11 @@ public class UIProgressBar : MonoBehaviour
 
     public void Hide()
     {
-        _image = GetComponent<Image>();
-        _image.CrossFadeAlpha(0f, 1f, false);
+        GetComponent<CanvasGroup>().alpha = 0f;
     }
 
     public void Show()
     {
-        _image = GetComponent<Image>();
-        _image.CrossFadeAlpha(1f, 1f, false);
+        GetComponent<CanvasGroup>().alpha = 1f;
     }
 }
