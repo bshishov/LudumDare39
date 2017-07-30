@@ -18,7 +18,7 @@ public class UIMachineIcon : MonoBehaviour
     {
         _image = GetComponent<Image>();
         _button = GetComponent<Button>();
-        _button.onClick.AddListener(new UnityAction(OnClick));
+        _button.onClick.AddListener(OnClick);
     }
 	
 	void Update ()
