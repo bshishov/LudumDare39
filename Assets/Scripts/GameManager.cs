@@ -7,6 +7,8 @@ public class GameManager : Singleton<GameManager>
 {
     public Dictionary<ResourceData, float> Resources = new Dictionary<ResourceData, float>();
 
+    public List<MachineData> BuiltMachines = new List<MachineData>();
+
 	void Start ()
     {
         var resources = UnityEngine.Resources.LoadAll<ResourceData>("Resources"); 

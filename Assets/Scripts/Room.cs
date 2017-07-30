@@ -29,6 +29,7 @@ public class Room : MonoBehaviour
     {
         if (HasMachine) return;
         Machine = Instantiate(machine.Prefab, this.transform).GetComponent<Machine>();
+        GameManager.Instance.BuiltMachines.Add(machine);
     }
 
     public void RemoveMachine()

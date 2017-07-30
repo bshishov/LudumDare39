@@ -11,6 +11,7 @@ public class MachineData : ScriptableObject
     public GameObject Prefab;
 
     [Header("Construction")]
+    public List<MachineData> RequiredMachines;
     public List<ResourceAmount> RequiredToBuildResources;
     public int TimeToBuild;
     public Room.RoomTypes AllowedRoomType;
@@ -28,7 +29,8 @@ public class MachineData : ScriptableObject
     public bool CanBeBuilt(Room room)
     {
         if (room.RoomType != AllowedRoomType) return false;
-        if (RequiredToBuildResources.Any(t => GameManager.Instance.HasResourceAmount(t))) return false;
+        if (RequiredToBuildResources.Any(t => !GameManager.Instance.HasResourceAmount(t))) return false;
+        if (!RequiredMachines.All(t => GameManager.Instance.BuiltMachines.Contains(t))) return false;
         return true;
     }
 }
