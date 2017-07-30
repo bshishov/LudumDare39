@@ -19,10 +19,7 @@ namespace Assets.Scripts.UI
         void Update()
         {
             if (EventSystem.current.IsPointerOverGameObject())
-            {
-                Debug.Log("OVER SCREEN");
                 return;
-            }
 
             var mouseRay = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

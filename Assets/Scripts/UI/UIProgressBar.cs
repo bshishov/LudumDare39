@@ -19,6 +19,8 @@ public class UIProgressBar : MonoBehaviour
     {
         _fill = (RectTransform)transform.GetChild(0);
         _rectTransform = GetComponent<RectTransform>();
+
+        _fill.anchorMax = new Vector2(Mathf.Lerp(0, _rectTransform.anchorMax.x, _oldValue), _fill.anchorMax.y);
     }	
 	
 	void Update ()
