@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114356088614087344}
   - component: {fileID: 114829984754297554}
   - component: {fileID: 114336850647513850}
+  - component: {fileID: 225451335295260260}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -176,3 +177,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225451335295260260
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596338206921304}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
