@@ -9,7 +9,8 @@ public class ResourceData : ScriptableObject
     public enum ResourceTypes
     {
         Cumulative,
-        Density
+        Density,
+        Returnable
     }
     public ResourceTypes ResourceType = ResourceTypes.Cumulative;
 }

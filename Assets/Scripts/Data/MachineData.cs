@@ -17,7 +17,7 @@ public class MachineData : ScriptableObject
     public Room.RoomTypes AllowedRoomType;
 
     [Header("Deconstruction")]
-    public List<ResourceAmount> RequiredToDestroyResources;
+    public List<ResourceAmount> ReturnedResources;
     public int TimeToDestroy;
 
     [Header("Production")]

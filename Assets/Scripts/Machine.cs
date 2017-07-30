@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ResourceData;
 
 public class Machine : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class Machine : MonoBehaviour
                 {
                     _statusTimer = 0;
                     GameObject.Destroy(gameObject);
+                    ReturnResources();
                 }
                 break;
             case Statuses.Crafting:
@@ -112,6 +114,18 @@ public class Machine : MonoBehaviour
         foreach (var resourceAmount in MachineData.InResources)
         {
             GameManager.Instance.DecreaseResource(resourceAmount);
+        }
+    }
+
+    public void ReturnResources()
+    {
+        foreach (var resourceAmount in MachineData.ReturnedResources)
+        {
+            GameManager.Instance.IncreaseResource(resourceAmount);
+        }
+        foreach (var resourceAmount in MachineData.ReturnedResources.Where(t => t.Resource.ResourceType == ResourceTypes.Returnable))
+        {
+            // todo: return resources
         }
     }
 }
