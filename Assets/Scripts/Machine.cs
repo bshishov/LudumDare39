@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static ResourceData;
 
 public class Machine : MonoBehaviour
 {
@@ -123,7 +122,7 @@ public class Machine : MonoBehaviour
         {
             GameManager.Instance.IncreaseResource(resourceAmount);
         }
-        foreach (var resourceAmount in MachineData.ReturnedResources.Where(t => t.Resource.ResourceType == ResourceTypes.Returnable))
+        foreach (var resourceAmount in MachineData.ReturnedResources.Where(t => t.Resource.ResourceType == ResourceData.ResourceTypes.Returnable))
         {
             // todo: return resources
         }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.UI;
+using UnityEngine;
 
 public class Room : MonoBehaviour
 {
@@ -35,5 +36,10 @@ public class Room : MonoBehaviour
     public void RemoveMachine()
     {
         Machine = null;
+    }
+
+    public void OnClick()
+    {
+        UIBuildingMenu.Instance.Show(this);
     }
 }
