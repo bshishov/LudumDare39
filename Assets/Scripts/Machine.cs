@@ -33,11 +33,6 @@ public class Machine : MonoBehaviour
 
     private float _statusTimer;
 
-    public bool HasEnoughResourcesToProduce
-    {
-        get { return true; }
-    }
-
     void Start()
     {
 
@@ -48,37 +43,32 @@ public class Machine : MonoBehaviour
         switch (_status)
         {
             case Statuses.Building:
-                _statusTimer += MachineData.TimeToBuild / Time.deltaTime;
-                if (_statusTimer >= MachineData.TimeToBuild)
+                if (TickTimer(MachineData.TimeToBuild))
                 {
                     _statusTimer = 0;
                     Status = Statuses.Crafting;
                 }
                 break;
             case Statuses.Removing:
-                _statusTimer += MachineData.TimeToDestroy / Time.deltaTime;
-                if (_statusTimer >= MachineData.TimeToDestroy)
+                if (TickTimer(MachineData.TimeToDestroy))
                 {
                     _statusTimer = 0;
                     GameObject.Destroy(gameObject);
                 }
                 break;
             case Statuses.Crafting:
-                _statusTimer += MachineData.TimeToProduce / Time.deltaTime;
-                if (_statusTimer >= MachineData.TimeToProduce)
+                if (TickTimer(MachineData.TimeToProduce))
                 {
                     _statusTimer = 0;
-                    foreach (var resourceAmount in MachineData.OutResources)
+                    ProduceResources();
+
+                    if (HasEnoughResourcesToProduce())
                     {
-                        GameManager.Instance.IncreaseResource(resourceAmount);
+                        ConsumeResources();
                     }
-                    if (MachineData.InResourcesRequired.Any(t => !GameManager.Instance.HasResourceAmount(t))) {
+                    else
+                    {
                         Status = Statuses.Idle;
-                        break;
-                    }
-                    foreach (var resourceAmount in MachineData.InResources)
-                    {
-                        GameManager.Instance.DecreaseResource(resourceAmount);
                     }
                 }
                 else
@@ -87,12 +77,41 @@ public class Machine : MonoBehaviour
                 }
                 break;
             case Statuses.Idle:
-                if (MachineData.InResourcesRequired.All(t => GameManager.Instance.HasResourceAmount(t)))
+                if (HasEnoughResourcesToProduce())
                 {
                     Status = Statuses.Crafting;
-                    break;
+                    ConsumeResources();
+                    TickTimer(MachineData.TimeToProduce);
                 }
                 break;
+        }
+    }
+
+    private bool TickTimer(float time)
+    {
+        _statusTimer += time / Time.deltaTime;
+        return _statusTimer >= time;
+    }
+
+    public bool HasEnoughResourcesToProduce()
+    {
+        return MachineData.InResourcesRequired.All(t => GameManager.Instance.HasResourceAmount(t)) &&
+            MachineData.InResources.All(t => GameManager.Instance.HasResourceAmount(t));
+    }
+
+    public void ProduceResources()
+    {
+        foreach (var resourceAmount in MachineData.OutResources)
+        {
+            GameManager.Instance.IncreaseResource(resourceAmount);
+        }
+    }
+
+    public void ConsumeResources()
+    {
+        foreach (var resourceAmount in MachineData.InResources)
+        {
+            GameManager.Instance.DecreaseResource(resourceAmount);
         }
     }
 }
