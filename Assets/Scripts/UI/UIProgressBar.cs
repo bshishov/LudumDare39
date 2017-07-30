@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIProgressBar : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class UIProgressBar : MonoBehaviour
     RectTransform _fill;    
     private float _oldValue = 0f;
     private RectTransform _rectTransform;
+    private Image _image;
 
     void Start ()
     {
         _fill = (RectTransform)transform.GetChild(0);
-        _rectTransform = GetComponent<RectTransform>();        
+        _rectTransform = GetComponent<RectTransform>();
+        _image.GetComponent<Image>();
     }	
 	
 	void Update ()
@@ -32,5 +35,15 @@ public class UIProgressBar : MonoBehaviour
 
         // INSTANT (better replace with one width change
         //_fill.anchorMax = new Vector2(Mathf.Lerp(0, _rectTransform.anchorMax.x, Value), _fill.anchorMax.y);
-    }    
+    }
+
+    public void Hide()
+    {
+        _image.CrossFadeAlpha(0f, 1f, false);
+    }
+
+    public void Show()
+    {
+        _image.CrossFadeAlpha(1f, 1f, false);
+    }
 }

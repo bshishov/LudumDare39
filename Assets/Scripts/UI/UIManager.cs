@@ -6,6 +6,8 @@ namespace Assets.Scripts.UI
 {
     public class UIManager : Singleton<UIManager>
     {
+        public GameObject ProgressBar;
+
         private Camera _camera;
         private GameObject _hoveredObject;
         
@@ -53,6 +55,15 @@ namespace Assets.Scripts.UI
                     UIBuildingMenu.Instance.Hide();
                 }
             }
+        }
+
+        public UIProgressBar CreateProgressBar(GameObject go)
+        {
+            var pbObject = (GameObject) Instantiate(ProgressBar, transform);
+            var pb = pbObject.GetComponent<UIProgressBar>();
+            var follow = pbObject.GetComponent<UIFollowSceneObject>();
+            follow.Target = go;
+            return pb;
         }
     }
 }
