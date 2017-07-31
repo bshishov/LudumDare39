@@ -6,27 +6,27 @@ using UnityEngine.UI;
 namespace Assets.Scripts.UI
 {
     public class UIResourceTooltip : Singleton<UITooltip>
-    {   
+    {
+        public Text NameLabel;
+        public Image IconImage;
+        public Text AmountLabel;
+        public Text DescriptionLabel;
+
         private ResourceData _resource;
-        private Text _nameLabel;
-        private Image _icon;
-        private Text _amount;
-        private Text _description;
 
         void Start ()
         {
-            // TODO: FIND LABELS
         }
         
         void Update ()
         {
             if(_resource != null)
             {
-                if(_amount != null)
+                if(AmountLabel != null)
                 {
                     var amount = GameManager.Instance.Resources[_resource];
-                    _amount.text = string.Format("{0:F1}", amount);
-                }                
+                    AmountLabel.text = string.Format("{0:F1}", amount);
+                }              
             }
         }
 
@@ -36,14 +36,14 @@ namespace Assets.Scripts.UI
             if(_resource == null)
                 return;
 
-            if(_nameLabel != null) 
-                _nameLabel.text = _resource.Name;
+            if(NameLabel != null) 
+                NameLabel.text = _resource.Name;
 
-            if(_icon != null && _resource.Icon != null)
-                _icon.sprite = _resource.Icon;
+            if(IconImage != null && _resource.Icon != null)
+                IconImage.sprite = _resource.Icon;
 
-            if(_description != null && _resource.Description != null)
-                _description.text = _resource.Description;
+            if(DescriptionLabel != null && _resource.Description != null)
+                DescriptionLabel.text = _resource.Description;
         }
     }
 }

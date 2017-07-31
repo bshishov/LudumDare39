@@ -33,8 +33,8 @@ namespace Assets.Scripts.UI
         public void ShowContainer()
         {
             _canvasGroup.alpha = 1f;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = false;
+            _canvasGroup.interactable = false;
         }
 
         public void Hide()
@@ -55,6 +55,7 @@ namespace Assets.Scripts.UI
             if(MachineTooltip != null)
             {
                 HideCurrentTooltip();
+                ShowContainer();
                 MachineTooltip.gameObject.SetActive(true);
                 MachineTooltip.SetMachine(machine);
             }
@@ -69,6 +70,7 @@ namespace Assets.Scripts.UI
             if(ResourceTooltip != null)
             {
                 HideCurrentTooltip();
+                ShowContainer();
                 ResourceTooltip.gameObject.SetActive(true);
                 ResourceTooltip.SetResource(resource);
             }
