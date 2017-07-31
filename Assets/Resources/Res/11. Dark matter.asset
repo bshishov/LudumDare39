@@ -9,9 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2aac850208eed3b48a8659a114d492aa, type: 3}
-  m_Name: Food
+  m_Name: 11. Dark matter
   m_EditorClassIdentifier: 
-  Name: Food
-  Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  BaseAmount: 11
+  Name: Dark matter
+  Icon: {fileID: 0}
+  BaseAmount: 0
+  Description: Almost impossible resource, generates a lot of energy
   ResourceType: 0
