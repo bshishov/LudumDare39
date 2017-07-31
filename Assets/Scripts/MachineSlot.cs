@@ -6,6 +6,7 @@ namespace Assets.Scripts
     public class MachineSlot : MonoBehaviour
     {
         public bool HasMachine {  get { return Machine != null; } }
+        public Vector3 PlacementOffset;
     
         public Machine Machine;
         private Light _light;
@@ -43,8 +44,8 @@ namespace Assets.Scripts
                 return;
             }
             Machine = Instantiate(machine.Prefab, this.transform).GetComponent<Machine>();
+            Machine.transform.localPosition = PlacementOffset;
             GameManager.Instance.BuiltMachines.Add(machine);
-            Machine.Init();
             Machine.Place();
         }
 

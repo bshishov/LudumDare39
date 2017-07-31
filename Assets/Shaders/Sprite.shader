@@ -70,7 +70,8 @@ Shader "Custom/Sprite"
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
-				fixed4 c = saturate(tex2D(_MainTex, IN.texcoord) + IN.color);
+				fixed4 c = saturate(tex2D(_MainTex, IN.texcoord) + IN.color);			
+				c.a *= IN.color.a;
 				c.rgb *= c.a;
 				return c;
 			}

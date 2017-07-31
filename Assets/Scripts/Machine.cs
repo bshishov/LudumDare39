@@ -41,16 +41,12 @@ namespace Assets.Scripts
         public void Start()
         {
             _renderer = GetComponent<SpriteRenderer>();
-        }
-
-        public void Init()
-        {
             _progressBar = UIManager.Instance.CreateProgressBar(gameObject);
         }
 
         void Update()
         {
-            switch (_status)
+            switch (Status)
             {
                 case Statuses.Building:
                     if (TickTimer(MachineData.TimeToBuild))
@@ -140,14 +136,16 @@ namespace Assets.Scripts
 
         public void Place()
         {
-            _status = Statuses.Building;
+            Status = Statuses.Building;
+            if (_progressBar == null)
+                _progressBar = UIManager.Instance.CreateProgressBar(gameObject);
             _progressBar.Show();
             ConsumeResources(MachineData.RequiredToBuildResources);
         }
 
         public void Remove()
         {
-            _status = Statuses.Removing;
+            Status = Statuses.Removing;
             _progressBar.Show();
         }
 
@@ -165,6 +163,17 @@ namespace Assets.Scripts
 
         private void OnStatusChange(Statuses oldStatus, Statuses newStatus)
         {
+            if (newStatus == Statuses.Building)
+            {
+                if (_renderer == null)
+                    _renderer = GetComponent<SpriteRenderer>();
+                _renderer.material.color = new Color(0, 0, 0, 0.5f);
+            }
+            else
+            {
+                _renderer.material.color = Color.black;
+            }
+
             if (newStatus == Statuses.Crafting)
             {
                 StartAnimation();
