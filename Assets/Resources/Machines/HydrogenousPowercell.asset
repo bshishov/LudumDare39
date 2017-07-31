@@ -14,13 +14,28 @@ MonoBehaviour:
   Name: 
   Icon: {fileID: 0}
   Prefab: {fileID: 0}
-  RequiredMachines: []
-  RequiredToBuildResources: []
-  TimeToBuild: 0
+  RequiredMachines:
+  - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
+  RequiredToBuildResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 350
+  - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
+    Amount: 25
+  TimeToBuild: 22
   AllowedRoomType: 0
-  ReturnedResources: []
-  TimeToDestroy: 0
+  ReturnedResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 300
+  - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
+    Amount: 10
+  TimeToDestroy: 30
   InResourcesRequired: []
-  InResources: []
-  OutResources: []
-  TimeToProduce: 0
+  InResources:
+  - Resource: {fileID: 11400000, guid: cd787095d6bcdd1448ceea143375cedd, type: 2}
+    Amount: 200
+  OutResources:
+  - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
+    Amount: 250
+  - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
+    Amount: 5
+  TimeToProduce: 1

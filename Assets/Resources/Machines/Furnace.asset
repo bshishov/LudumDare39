@@ -11,16 +11,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdb05df14844b741ac57b21629b9aab, type: 3}
   m_Name: Furnace
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Furnace
   Icon: {fileID: 0}
   Prefab: {fileID: 0}
-  RequiredMachines: []
-  RequiredToBuildResources: []
-  TimeToBuild: 0
+  RequiredMachines:
+  - {fileID: 0}
+  RequiredToBuildResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 300
+  TimeToBuild: 12
   AllowedRoomType: 0
-  ReturnedResources: []
-  TimeToDestroy: 0
+  ReturnedResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 200
+  TimeToDestroy: 15
   InResourcesRequired: []
-  InResources: []
-  OutResources: []
-  TimeToProduce: 0
+  InResources:
+  - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
+    Amount: 10
+  - Resource: {fileID: 11400000, guid: 9fd43f95dbf6a534f88eba7e404706b6, type: 2}
+    Amount: 10
+  OutResources:
+  - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
+    Amount: 25
+  TimeToProduce: 1

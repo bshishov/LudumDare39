@@ -11,22 +11,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdb05df14844b741ac57b21629b9aab, type: 3}
   m_Name: ResearchDesk
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Research Desk
   Icon: {fileID: 0}
   Prefab: {fileID: 1324563685224396, guid: 39f87c47ffe2c0147931db55e96721e1, type: 2}
   RequiredMachines: []
   RequiredToBuildResources:
-  - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
-    Amount: 1
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 250
   TimeToBuild: 10
   AllowedRoomType: 0
-  ReturnedResources: []
-  TimeToDestroy: 0
-  InResourcesRequired: []
+  ReturnedResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 200
+  TimeToDestroy: 10
+  InResourcesRequired:
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 10
   InResources:
-  - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
-    Amount: 1
+  - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
+    Amount: 150
   OutResources:
-  - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
-    Amount: 1
-  TimeToProduce: 5
+  - Resource: {fileID: 11400000, guid: 89cb67b8d5d517c4d8e1a970033b8741, type: 2}
+    Amount: 25
+  TimeToProduce: 1

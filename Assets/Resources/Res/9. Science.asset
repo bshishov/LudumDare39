@@ -15,4 +15,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   BaseAmount: 0
   Description: Percentage of system survey. Your primary goal
-  ResourceType: 1
+  ResourceType: 0

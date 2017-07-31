@@ -11,17 +11,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdb05df14844b741ac57b21629b9aab, type: 3}
   m_Name: IceHarvester
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Ice Harvester
   Icon: {fileID: 0}
   Prefab: {fileID: 0}
   RequiredMachines:
-  - {fileID: 0}
-  RequiredToBuildResources: []
-  TimeToBuild: 0
-  AllowedRoomType: 0
-  ReturnedResources: []
-  TimeToDestroy: 0
+  - {fileID: 11400000, guid: 50693be621c257a419b70f7e2c57c459, type: 2}
+  RequiredToBuildResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 100
+  TimeToBuild: 20
+  AllowedRoomType: 3
+  ReturnedResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 75
+  TimeToDestroy: 10
   InResourcesRequired: []
-  InResources: []
-  OutResources: []
-  TimeToProduce: 0
+  InResources:
+  - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
+    Amount: 10
+  OutResources:
+  - Resource: {fileID: 11400000, guid: 9fd43f95dbf6a534f88eba7e404706b6, type: 2}
+    Amount: 15
+  TimeToProduce: 1

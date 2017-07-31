@@ -11,16 +11,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdb05df14844b741ac57b21629b9aab, type: 3}
   m_Name: SolarBatteries
   m_EditorClassIdentifier: 
-  Name: 
+  Name: SolarBatteries
   Icon: {fileID: 0}
   Prefab: {fileID: 0}
-  RequiredMachines: []
-  RequiredToBuildResources: []
-  TimeToBuild: 0
-  AllowedRoomType: 0
-  ReturnedResources: []
-  TimeToDestroy: 0
+  RequiredMachines:
+  - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
+  RequiredToBuildResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 150
+  - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
+    Amount: 20
+  TimeToBuild: 15
+  AllowedRoomType: 1
+  ReturnedResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 100
+  - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
+    Amount: 5
+  TimeToDestroy: 20
   InResourcesRequired: []
   InResources: []
-  OutResources: []
-  TimeToProduce: 0
+  OutResources:
+  - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
+    Amount: 300
+  TimeToProduce: 1
