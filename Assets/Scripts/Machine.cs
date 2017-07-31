@@ -141,4 +141,14 @@ public class Machine : MonoBehaviour
         _status = Statuses.Removing;
         _progressBar.Show();
     }
+
+    public void OnMouseEnter()
+    {
+        UITooltip.Instance.Show(this);
+    }
+
+    public void OnMouseLeave()
+    {
+        UITooltip.Instance.Hide();   
+    }
 }
