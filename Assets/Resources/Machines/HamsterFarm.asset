@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdb05df14844b741ac57b21629b9aab, type: 3}
   m_Name: HamsterFarm
   m_EditorClassIdentifier: 
-  Name: HamsterFarm
+  Name: Hamster Farm
   Icon: {fileID: 0}
   Prefab: {fileID: 0}
   RequiredMachines: []

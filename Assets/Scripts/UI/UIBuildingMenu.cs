@@ -48,7 +48,7 @@ namespace Assets.Scripts.UI
             _canvasGroup.blocksRaycasts = false;
         }
 
-        public void Show(Room context)
+        public void Show(MachineSlot context)
         {
             _follow.Target = context.gameObject; 
 

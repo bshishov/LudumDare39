@@ -1,70 +1,70 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts;
-using Assets.Scripts.UI;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-[RequireComponent(typeof(Button))]
-public class UIMachineIcon : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    private MachineData _machine;
-    private Image _image;
-    private Button _button;
-    private Room _context;
+    [RequireComponent(typeof(Image))]
+    [RequireComponent(typeof(Button))]
+    public class UIMachineIcon : MonoBehaviour
+    {
+        public MachineData Machine {get { return _machine; }}
+        private MachineData _machine;
+        private Image _image;
+        private Button _button;
+        private MachineSlot _context;
 
-	void Start ()
-    {
-        _image = GetComponent<Image>();
-        _button = GetComponent<Button>();
-        _button.onClick.AddListener(OnClick);
-    }
-	
-	void Update ()
-    {
-		if(_machine != null && _context != null)
+        void Start ()
         {
-            if (_machine.CanBeBuilt(_context))
+            _image = GetComponent<Image>();
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(OnClick);
+        }
+	
+        void Update ()
+        {
+            if(_machine != null && _context != null)
             {
-                _button.interactable = true;
+                if (_machine.CanBeBuilt(_context))
+                {
+                    _button.interactable = true;
+                }
+                else
+                {
+                    _button.interactable = false;
+                }
             }
             else
             {
                 _button.interactable = false;
             }
         }
-		else
-		{
-		    _button.interactable = false;
-		}
-    }
 
-    public void SetMachineData(MachineData data)
-    {
-        _machine = data;
-        if (data.Icon == null)
+        public void SetMachineData(MachineData data)
         {
-            Debug.LogWarning(string.Format("No icon for {0}", _machine.name));
+            _machine = data;
+            if (data.Icon == null)
+            {
+                Debug.LogWarning(string.Format("No icon for {0}", _machine.name));
+            }
+            else
+            {
+                _image = GetComponent<Image>();
+                _image.sprite = data.Icon;
+            }
         }
-        else
+
+        public void SetRoom(MachineSlot context)
         {
-            _image.sprite = data.Icon;
+            _context = context;
         }
-    }
 
-    public void SetRoom(Room context)
-    {
-        _context = context;
-    }
-
-    private void OnClick()
-    {
-        if (_context != null && _machine != null)
+        private void OnClick()
         {
-            _context.PlaceMachine(_machine);
-            UIBuildingMenu.Instance.Hide();
+            if (_context != null && _machine != null)
+            {
+                _context.PlaceMachine(_machine);
+                UIBuildingMenu.Instance.Hide();
+            }
         }
     }
 }

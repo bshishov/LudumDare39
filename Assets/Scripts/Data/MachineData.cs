@@ -15,7 +15,7 @@ public class MachineData : ScriptableObject
     public List<MachineData> RequiredMachines;
     public List<ResourceAmount> RequiredToBuildResources;
     public int TimeToBuild;
-    public Room.RoomTypes AllowedRoomType;
+    public MachineSlot.RoomTypes AllowedRoomType;
 
     [Header("Deconstruction")]
     public List<ResourceAmount> ReturnedResources;
@@ -27,9 +27,9 @@ public class MachineData : ScriptableObject
     public List<ResourceAmount> OutResources;
     public float TimeToProduce;
 
-    public bool CanBeBuilt(Room room)
+    public bool CanBeBuilt(MachineSlot machineSlot)
     {
-        if (room.RoomType != AllowedRoomType) return false;
+        if (machineSlot.RoomType != AllowedRoomType) return false;
         if (RequiredToBuildResources.Any(t => !GameManager.Instance.HasResourceAmount(t))) return false;
         if (!RequiredMachines.All(t => GameManager.Instance.BuiltMachines.Contains(t))) return false;
         return true;

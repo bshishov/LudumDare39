@@ -9,6 +9,7 @@ namespace Assets.Scripts
     {
         public MachineData MachineData;
         private UIProgressBar _progressBar;
+        private SpriteRenderer _renderer;
 
         public enum Statuses
         {
@@ -29,11 +30,18 @@ namespace Assets.Scripts
                 {
                     return;
                 }
+                if (value != _status)
+                    OnStatusChange(_status, value);
                 _status = value;
             }
         }
 
         private float _statusTimer;
+
+        public void Start()
+        {
+            _renderer = GetComponent<SpriteRenderer>();
+        }
 
         public void Init()
         {
@@ -145,12 +153,45 @@ namespace Assets.Scripts
 
         public void OnMouseEnter()
         {
+            _renderer.material.color = new Color(0.2f, 0.2f, 0.2f, 1f);
             UITooltip.Instance.Show(this);
         }
 
         public void OnMouseLeave()
         {
+            _renderer.material.color = Color.black;
             UITooltip.Instance.Hide();   
+        }
+
+        private void OnStatusChange(Statuses oldStatus, Statuses newStatus)
+        {
+            if (newStatus == Statuses.Crafting)
+            {
+                StartAnimation();
+            }
+            else
+            {
+                StopAnimation();
+            }
+
+            if (newStatus == Statuses.Idle)
+            {
+                _renderer.material.color = Color.red;
+            }
+            else
+            {
+                _renderer.material.color = Color.black;
+            }
+        }
+
+        private void StartAnimation()
+        {
+            _renderer.material.SetFloat("_AnimationSpeed", 3);
+        }
+
+        private void StopAnimation()
+        {
+            _renderer.material.SetFloat("_AnimationSpeed", 0);
         }
     }
 }

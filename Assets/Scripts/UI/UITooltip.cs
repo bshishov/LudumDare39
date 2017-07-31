@@ -9,7 +9,6 @@ namespace Assets.Scripts.UI
     {        
         public UIResourceTooltip ResourceTooltip;
         public UIMachineTooltip MachineTooltip;
-        //public UIMachineDataTooltip MachineDataTooltip;
 
         private CanvasGroup _canvasGroup;
         private GameObject _currentTootlip;
@@ -20,7 +19,6 @@ namespace Assets.Scripts.UI
             
             ResourceTooltip = GetComponentInChildren<UIResourceTooltip>();
             MachineTooltip = GetComponentInChildren<UIMachineTooltip>();
-            //MachineDataTooltip = GetComponentInChildren<UIMachineDataTooltip>();
 
             Hide();
         }
@@ -39,6 +37,12 @@ namespace Assets.Scripts.UI
 
         public void Hide()
         {
+            if(MachineTooltip != null)
+                MachineTooltip.gameObject.SetActive(false);
+
+            if (ResourceTooltip != null)
+                ResourceTooltip.gameObject.SetActive(false);
+
             _canvasGroup.alpha = 0f;
             _canvasGroup.blocksRaycasts = false;
             _canvasGroup.interactable = false;
@@ -58,11 +62,20 @@ namespace Assets.Scripts.UI
                 ShowContainer();
                 MachineTooltip.gameObject.SetActive(true);
                 MachineTooltip.SetMachine(machine);
+                _currentTootlip = MachineTooltip.gameObject;
             }
         }
 
         public void Show(MachineData machine)
-        {            
+        {
+            if (MachineTooltip != null)
+            {
+                HideCurrentTooltip();
+                ShowContainer();
+                MachineTooltip.gameObject.SetActive(true);
+                MachineTooltip.SetMachineData(machine);
+                _currentTootlip = MachineTooltip.gameObject;
+            }
         }
 
         public void Show(ResourceData resource)
@@ -73,6 +86,7 @@ namespace Assets.Scripts.UI
                 ShowContainer();
                 ResourceTooltip.gameObject.SetActive(true);
                 ResourceTooltip.SetResource(resource);
+                _currentTootlip = ResourceTooltip.gameObject;
             }
         }
     }

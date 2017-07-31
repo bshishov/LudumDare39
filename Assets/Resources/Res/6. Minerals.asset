@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: 6. Minerals
   m_EditorClassIdentifier: 
   Name: Minerals
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300010, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
   BaseAmount: 750
   Description: Anything usefull in construction or ready to be refined
   ResourceType: 0

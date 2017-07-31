@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: 7. Ice
   m_EditorClassIdentifier: 
   Name: Ice
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300012, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
   BaseAmount: 0
   Description: Has one purpose - to become water
   ResourceType: 0

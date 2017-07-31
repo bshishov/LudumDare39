@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bdb05df14844b741ac57b21629b9aab, type: 3}
   m_Name: WaterRecovery
   m_EditorClassIdentifier: 
-  Name: Water
-  Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Name: Water Recovery
+  Icon: {fileID: 21300004, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
+  Prefab: {fileID: 1670839591823708, guid: f7190110dcde9e4419421f0fd457cc8c, type: 2}
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}

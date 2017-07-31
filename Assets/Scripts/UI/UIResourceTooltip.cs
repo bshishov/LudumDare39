@@ -24,9 +24,17 @@ namespace Assets.Scripts.UI
             {
                 if(AmountLabel != null)
                 {
-                    var amount = GameManager.Instance.Resources[_resource];
-                    AmountLabel.text = string.Format("{0:F1}", amount);
+                    if (GameManager.Instance.Resources.ContainsKey(_resource))
+                    {
+                        var amount = GameManager.Instance.Resources[_resource];
+                        AmountLabel.text = string.Format("{0:F1}", amount);
+                    }
+                    else
+                    {
+                        AmountLabel.text = "N/A";
+                    }
                 }              
+
             }
         }
 
@@ -36,14 +44,24 @@ namespace Assets.Scripts.UI
             if(_resource == null)
                 return;
 
-            if(NameLabel != null) 
+            if(NameLabel != null)
                 NameLabel.text = _resource.Name;
 
-            if(IconImage != null && _resource.Icon != null)
-                IconImage.sprite = _resource.Icon;
+            if (IconImage != null)
+            {
+                if (_resource.Icon != null)
+                    IconImage.sprite = _resource.Icon;
+                else
+                    IconImage.sprite = null;
+            }
 
-            if(DescriptionLabel != null && _resource.Description != null)
-                DescriptionLabel.text = _resource.Description;
+            if (DescriptionLabel != null)
+            {
+                if (resource.Description != null)
+                    DescriptionLabel.text = _resource.Description;
+                else
+                    DescriptionLabel.text = "";
+            }
         }
     }
 }

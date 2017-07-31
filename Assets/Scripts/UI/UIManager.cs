@@ -19,7 +19,10 @@ namespace Assets.Scripts.UI
         void Update()
         {
             if (EventSystem.current.IsPointerOverGameObject())
+            {
+                UnHover();
                 return;
+            }
 
             var mouseRay = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -47,11 +50,19 @@ namespace Assets.Scripts.UI
             }
             else
             {
+                UnHover();
                 if (Input.GetMouseButtonDown(0))
                 {
                     UIBuildingMenu.Instance.Hide();
                 }
             }
+        }
+
+        private void UnHover()
+        {
+            if (_hoveredObject != null)
+                _hoveredObject.SendMessage("OnMouseLeave", SendMessageOptions.DontRequireReceiver);
+            _hoveredObject = null;
         }
 
         public UIProgressBar CreateProgressBar(GameObject go)

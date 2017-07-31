@@ -11,6 +11,7 @@ namespace Assets.Scripts.UI
         public ResourceData Resource;
         public Text AmountLabel;
         public Image Icon;
+        public bool ShowStorageAmount = false;
 
         void Start ()
         {
@@ -30,11 +31,19 @@ namespace Assets.Scripts.UI
 
         void Update()
         {
-            if (Resource != null && AmountLabel != null)
+            if (ShowStorageAmount && Resource != null && AmountLabel != null)
             {
                 var amount = GameManager.Instance.Resources[Resource];
-                AmountLabel.text = string.Format("{0:F1}", amount);
+                AmountLabel.text = amount.ToString("F0");
             }
-        }	
+        }
+
+        public void SetAmount(float amount)
+        {
+            if (Resource != null && AmountLabel != null)
+            {
+                AmountLabel.text = amount.ToString("F0");
+            }
+        }
     }
 }

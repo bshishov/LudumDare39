@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: 11. Dark matter
   m_EditorClassIdentifier: 
   Name: Dark matter
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300020, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
   BaseAmount: 0
   Description: Almost impossible resource, generates a lot of energy
   ResourceType: 0
