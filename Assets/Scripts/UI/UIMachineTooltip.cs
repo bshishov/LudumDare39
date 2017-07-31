@@ -24,6 +24,10 @@ namespace Assets.Scripts.UI
         
         void Update ()
         {
+            foreach (var res in _machineData.OutResources)
+            {
+                OutResources.Add(res);
+            }
         }
 
         public void SetMachineData(MachineData machineData)
