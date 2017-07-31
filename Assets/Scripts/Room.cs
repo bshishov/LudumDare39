@@ -31,6 +31,11 @@ namespace Assets.Scripts
         public void PlaceMachine(MachineData machine)
         {
             if (HasMachine) return;
+            if (machine.Prefab == null)
+            {
+                Debug.LogWarningFormat("Prefab is not set for machine {0}", machine.name);
+                return;
+            }
             Machine = Instantiate(machine.Prefab, this.transform).GetComponent<Machine>();
             GameManager.Instance.BuiltMachines.Add(machine);
             Machine.Init();
