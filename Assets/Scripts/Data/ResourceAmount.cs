@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Data;
 
 [Serializable]
 public class ResourceAmount

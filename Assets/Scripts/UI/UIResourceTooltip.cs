@@ -1,3 +1,4 @@
+using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,7 @@ namespace Assets.Scripts.UI
 {
     public class UIResourceTooltip : Singleton<UITooltip>
     {   
-        private Resource _resource;
+        private ResourceData _resource;
         private Text _nameLabel;
         private Image _icon;
         private Text _amount;
@@ -29,7 +30,7 @@ namespace Assets.Scripts.UI
             }
         }
 
-        public void SetResource(Resource resource)
+        public void SetResource(ResourceData resource)
         {
             _resource = resource;
             if(_resource == null)
@@ -41,7 +42,7 @@ namespace Assets.Scripts.UI
             if(_icon != null && _resource.Icon != null)
                 _icon.sprite = _resource.Icon;
 
-            if(_description != null && _resource.Desciption != null)
+            if(_description != null && _resource.Description != null)
                 _description.text = _resource.Description;
         }
     }

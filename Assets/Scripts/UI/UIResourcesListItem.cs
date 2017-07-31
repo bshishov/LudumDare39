@@ -1,24 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIResourcesListItem : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public ResourceData Resource;
-    private Text _amountLabel;
-    private Image _icon;
+    public class UIResourcesListItem : MonoBehaviour
+    {
+        public ResourceData Resource;
+        public Text AmountLabel;
+        public Image Icon;
 
-	void Start ()
-    {
-        _amountLabel = GetComponentInChildren<Text>();
-        _icon = GetComponentInChildren<Image>();
-        _icon.sprite = Resource.Icon;
-    }
+        void Start ()
+        {
+            Icon.sprite = Resource.Icon;
+        }
 	
-    void Update()
-    {
-        var amount = GameManager.Instance.Resources[Resource];
-        _amountLabel.text = string.Format("{0:F1}", amount);
-    }	
+        void Update()
+        {
+            var amount = GameManager.Instance.Resources[Resource];
+            AmountLabel.text = string.Format("{0:F1}", amount);
+        }	
+    }
 }

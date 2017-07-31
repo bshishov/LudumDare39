@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Utils;
+﻿using Assets.Scripts.Data;
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 namespace Assets.Scripts.UI
@@ -8,7 +9,7 @@ namespace Assets.Scripts.UI
     {        
         public UIResourceTooltip ResourceTooltip;
         public UIMachineTooltip MachineTooltip;
-        public UIMachineDataTooltip MachineDataTooltip;
+        //public UIMachineDataTooltip MachineDataTooltip;
 
         private CanvasGroup _canvasGroup;
         private GameObject _currentTootlip;
@@ -19,7 +20,7 @@ namespace Assets.Scripts.UI
             
             ResourceTooltip = GetComponentInChildren<UIResourceTooltip>();
             MachineTooltip = GetComponentInChildren<UIMachineTooltip>();
-            MachineDataTooltip = GetComponentInChildren<UIMachineDataTooltip>();
+            //MachineDataTooltip = GetComponentInChildren<UIMachineDataTooltip>();
 
             Hide();
         }
@@ -46,7 +47,7 @@ namespace Assets.Scripts.UI
         private void HideCurrentTooltip()
         {
             if(_currentTootlip != null)
-                _currentTootlip.enabled = false;
+                _currentTootlip.SetActive(false);
         }
 
         public void Show(Machine machine)
@@ -54,7 +55,7 @@ namespace Assets.Scripts.UI
             if(MachineTooltip != null)
             {
                 HideCurrentTooltip();
-                MachineTooltip.gameObject.enabled = true;
+                MachineTooltip.gameObject.SetActive(true);
                 MachineTooltip.SetMachine(machine);
             }
         }
@@ -63,12 +64,12 @@ namespace Assets.Scripts.UI
         {            
         }
 
-        public UIResourceTooltip Show(ResourceData resource)
+        public void Show(ResourceData resource)
         {
             if(ResourceTooltip != null)
             {
                 HideCurrentTooltip();
-                ResourceTooltip.gameObject.enabled = true;
+                ResourceTooltip.gameObject.SetActive(true);
                 ResourceTooltip.SetResource(resource);
             }
         }

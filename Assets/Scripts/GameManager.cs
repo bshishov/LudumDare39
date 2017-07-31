@@ -2,6 +2,7 @@
 using Assets.Scripts.Utils;
 using UnityEngine;
 using System.Linq;
+using Assets.Scripts.Data;
 
 public class GameManager : Singleton<GameManager>
 {

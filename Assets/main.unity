@@ -588,6 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce881885d2c89e40bf4838e1064669e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResourceTooltip: {fileID: 0}
+  MachineTooltip: {fileID: 0}
 --- !u!225 &943948042
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1214,7 +1216,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1833045643639520, guid: c44b173bdd8b89c47a08f77e9186332a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c44b173bdd8b89c47a08f77e9186332a, type: 2}
@@ -1452,7 +1454,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2021738498}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00008603092}
-  m_LocalPosition: {x: 3.69, y: 0, z: 0}
+  m_LocalPosition: {x: 3.61, y: 0, z: 0}
   m_LocalScale: {x: 3.6518204, y: 3.6518173, z: 3.6518173}
   m_Children:
   - {fileID: 1878027879}

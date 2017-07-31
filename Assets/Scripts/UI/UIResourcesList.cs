@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Data;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class UIResourcesList : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public GameObject ResourcesListItemPrefab;    
-	
-	void Start()
+    public class UIResourcesList : MonoBehaviour
     {
-        var resources = UnityEngine.Resources.LoadAll<ResourceData>("Res");
-        foreach (var resource in resources)
+        public GameObject ResourcesListItemPrefab;    
+	
+        void Start()
         {
-            var itemObject = (GameObject)Instantiate(ResourcesListItemPrefab, transform);
-            var item = itemObject.GetComponent<UIResourcesListItem>();
-            item.Resource = resource;            
+            var resources = UnityEngine.Resources.LoadAll<ResourceData>("Res");
+            foreach (var resource in resources)
+            {
+                var itemObject = (GameObject)Instantiate(ResourcesListItemPrefab, transform);
+                var item = itemObject.GetComponent<UIResourcesListItem>();
+                item.Resource = resource;            
+            }
         }
-	}
+    }
 }
