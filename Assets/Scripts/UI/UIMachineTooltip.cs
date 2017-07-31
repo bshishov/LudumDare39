@@ -56,7 +56,7 @@ namespace Assets.Scripts.UI
 
             if (RequiredTime != null)
             {
-                RequiredTime.text = string.Format("{0}s", machineData.TimeToBuild);
+                RequiredTime.text = string.Format("{0}s", machineData.TimeToProduce);
             }
 
             if (InResources != null)
