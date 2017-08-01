@@ -10,6 +10,7 @@ public class MachineData : ScriptableObject
     public string Name;
     public Sprite Icon;
     public GameObject Prefab;
+    public string Description;
 
     [Header("Construction")]
     public List<MachineData> RequiredMachines;
