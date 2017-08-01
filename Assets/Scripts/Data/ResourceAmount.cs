@@ -5,7 +5,7 @@ using Assets.Scripts.Data;
 public class ResourceAmount
 {
     public ResourceData Resource;
-    public int Amount;
+    public float Amount;
 
     public override string ToString()
     {

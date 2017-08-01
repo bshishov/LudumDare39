@@ -10,6 +10,7 @@ namespace Assets.Scripts
         public MachineData MachineData;
         private UIProgressBar _progressBar;
         private SpriteRenderer _renderer;
+        private Material _sunMaterial;
 
         public enum Statuses
         {
@@ -42,6 +43,7 @@ namespace Assets.Scripts
         {
             _renderer = GetComponent<SpriteRenderer>();
             _progressBar = UIManager.Instance.CreateProgressBar(gameObject);
+            _sunMaterial = GameManager.Instance.Sun.GetComponent<MeshRenderer>().material;
         }
 
         void Update()
@@ -90,10 +92,6 @@ namespace Assets.Scripts
                             Status = Statuses.Idle;
                         }
                     }
-                    else
-                    {
-                        _statusTimer += MachineData.TimeToProduce / Time.deltaTime;
-                    }
                     break;
                 case Statuses.Idle:
                     if (HasEnoughResourcesToProduce())
@@ -128,8 +126,15 @@ namespace Assets.Scripts
 
         public void GainResources(IEnumerable<ResourceAmount> resources)
         {
+            var multiplier = 1f;
+            if (MachineData.SunPowerDependent)
+            {
+                multiplier = _sunMaterial.GetFloat("_Temperature");
+            }
+
             foreach (var resourceAmount in resources)
             {
+                resourceAmount.Amount *= multiplier;
                 GameManager.Instance.IncreaseResource(resourceAmount);
             }
         }

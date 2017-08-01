@@ -11,6 +11,11 @@ namespace Assets.Scripts
 
         public List<MachineData> BuiltMachines = new List<MachineData>();
 
+        public GameObject Sun;
+        public float TimeForSunToGoOut;
+
+        private Sun _sunComponent;
+
         void Start()
         {
             var resources = UnityEngine.Resources.LoadAll<ResourceData>("Res"); 
@@ -19,10 +24,17 @@ namespace Assets.Scripts
             {
                 Resources.Add(resource, resource.BaseAmount);
             }
+            _sunComponent = Sun.GetComponent<Sun>();
         }	
 	
         void Update ()
-        {		
+        {
+            if (_sunComponent.Temperature > 0f)
+            {
+                var oldTemperature = _sunComponent.Temperature;
+                var newTemperature = oldTemperature - Time.deltaTime / TimeForSunToGoOut;
+                _sunComponent.Temperature = Mathf.Max(newTemperature, 0f);
+            }
         }
 
         public bool HasResourceAmount(ResourceAmount resource)

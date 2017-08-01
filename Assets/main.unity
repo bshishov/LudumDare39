@@ -1220,6 +1220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuiltMachines: []
+  Sun: {fileID: 850428776}
+  TimeForSunToGoOut: 10
 --- !u!4 &409721019
 Transform:
   m_ObjectHideFlags: 0
@@ -2259,6 +2261,7 @@ GameObject:
   - component: {fileID: 850428780}
   - component: {fileID: 850428779}
   - component: {fileID: 850428777}
+  - component: {fileID: 850428778}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -2298,6 +2301,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &850428778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850428776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171a2afb72dd1554d8849c441a9c02f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SunMaterials:
+  - {fileID: 2100000, guid: 7d4654c7bc55881409444976e760f327, type: 2}
+  - {fileID: 2100000, guid: a92dd958e90bdc4458f05e49b9f2a4f1, type: 2}
+  - {fileID: 2100000, guid: 6a92a54fa6885dc4f9fc278d3737928b, type: 2}
 --- !u!33 &850428779
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4222,9 +4240,9 @@ RectTransform:
   m_Father: {fileID: 252707618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 118.71, y: -66.99}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 118.71, y: 0}
   m_SizeDelta: {x: 207.42, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547884235
