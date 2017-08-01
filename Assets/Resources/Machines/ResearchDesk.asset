@@ -14,24 +14,27 @@ MonoBehaviour:
   Name: Research Desk
   Icon: {fileID: 21300002, guid: d1ea15f74d7a9ad49b723575b95bc441, type: 3}
   Prefab: {fileID: 1102507739123236, guid: eb22dc7520ca95148b414f817f9fade6, type: 2}
+  Description: 
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 250
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 20
   TimeToBuild: 10
   AllowedRoomType: 0
   ReturnedResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 200
-  TimeToDestroy: 10
-  InResourcesRequired:
   - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
-    Amount: 10
+    Amount: 30
+  TimeToDestroy: 10
+  InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
     Amount: 150
   OutResources:
   - Resource: {fileID: 11400000, guid: 89cb67b8d5d517c4d8e1a970033b8741, type: 2}
     Amount: 25
-  TimeToProduce: 1
+  TimeToProduce: 3
   SunPowerDependent: 0

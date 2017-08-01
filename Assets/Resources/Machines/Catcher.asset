@@ -14,13 +14,14 @@ MonoBehaviour:
   Name: Catcher
   Icon: {fileID: 21300000, guid: 14a6a138cf328dd438ec8cb7d549d633, type: 3}
   Prefab: {fileID: 1879200324227044, guid: aad8c8c54095aec4d81191e8b12d5eb4, type: 2}
+  Description: 
   RequiredMachines:
   - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 125
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
-    Amount: 15
+    Amount: 30
   TimeToBuild: 10
   AllowedRoomType: 1
   ReturnedResources:
@@ -35,8 +36,8 @@ MonoBehaviour:
     Amount: 120
   OutResources:
   - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
-    Amount: 15
+    Amount: 300
   - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
-    Amount: 30
-  TimeToProduce: 1
+    Amount: 300
+  TimeToProduce: 3
   SunPowerDependent: 0

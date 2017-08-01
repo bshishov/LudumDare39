@@ -14,26 +14,31 @@ MonoBehaviour:
   Name: Design Department
   Icon: {fileID: 21300000, guid: 6d54d259d3cc08f469d7a0eff609dadd, type: 3}
   Prefab: {fileID: 1592176987544968, guid: fe079a5da7ea5e44db2f70e415b91f32, type: 2}
+  Description: 
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
-    Amount: 500
+    Amount: 350
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 15
   TimeToBuild: 10
   AllowedRoomType: 0
   ReturnedResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 250
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 10
   TimeToDestroy: 10
   InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
-    Amount: 2000
+    Amount: 1000
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
-    Amount: 300
+    Amount: 50
   - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
-    Amount: 150
+    Amount: 20
   OutResources:
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
     Amount: 10
-  TimeToProduce: 10
+  TimeToProduce: 5
   SunPowerDependent: 0

@@ -14,22 +14,29 @@ MonoBehaviour:
   Name: Garden
   Icon: {fileID: 21300002, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
   Prefab: {fileID: 1392955411093810, guid: 5179fe840831e0c438637d2376b2340e, type: 2}
+  Description: 
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
-    Amount: 100
+    Amount: 75
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 5
   TimeToBuild: 7
   AllowedRoomType: 0
-  ReturnedResources: []
+  ReturnedResources:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 50
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 5
   TimeToDestroy: 10
   InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
-    Amount: 150
+    Amount: 50
   - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
-    Amount: 1
+    Amount: 10
   OutResources:
   - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
-    Amount: 50
-  TimeToProduce: 1
+    Amount: 60
+  TimeToProduce: 3
   SunPowerDependent: 0

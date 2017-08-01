@@ -14,6 +14,7 @@ MonoBehaviour:
   Name: Solar Batteries
   Icon: {fileID: 21300000, guid: 822fffb19f807b444823651faa471cfb, type: 3}
   Prefab: {fileID: 1197031695349754, guid: d128a689984f5ed45ae5b3585c4338bf, type: 2}
+  Description: 
   RequiredMachines:
   - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
   RequiredToBuildResources:
@@ -28,11 +29,11 @@ MonoBehaviour:
     Amount: 100
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
     Amount: 5
-  TimeToDestroy: 20
+  TimeToDestroy: 10
   InResourcesRequired: []
   InResources: []
   OutResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
-    Amount: 300
-  TimeToProduce: 1
+    Amount: 400
+  TimeToProduce: 3
   SunPowerDependent: 1

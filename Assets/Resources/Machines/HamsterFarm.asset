@@ -14,10 +14,13 @@ MonoBehaviour:
   Name: Hamster Farm
   Icon: {fileID: 21300000, guid: 353b602531f0173479bfe86d28e69942, type: 3}
   Prefab: {fileID: 1948675134537896, guid: 3d1d00c8addf4e142a2fbc44b1a4a20e, type: 2}
+  Description: 
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 100
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 1
   TimeToBuild: 5
   AllowedRoomType: 0
   ReturnedResources:
@@ -25,17 +28,19 @@ MonoBehaviour:
     Amount: 50
   - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
     Amount: 20
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 1
   TimeToDestroy: 10
   InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
-    Amount: 50
+    Amount: 100
   - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
-    Amount: 15
+    Amount: 5
   - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
     Amount: 4
   - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
     Amount: 5
   OutResources: []
-  TimeToProduce: 1
+  TimeToProduce: 3
   SunPowerDependent: 0

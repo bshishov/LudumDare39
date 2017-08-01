@@ -14,23 +14,27 @@ MonoBehaviour:
   Name: Water Recovery
   Icon: {fileID: 21300004, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
   Prefab: {fileID: 1670839591823708, guid: f7190110dcde9e4419421f0fd457cc8c, type: 2}
+  Description: 
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 75
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 2
   TimeToBuild: 7
   AllowedRoomType: 0
   ReturnedResources:
-  - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
-    Amount: 10
-  TimeToDestroy: 6
-  InResourcesRequired:
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 50
   - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
     Amount: 5
+  TimeToDestroy: 6
+  InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
     Amount: 100
   OutResources:
   - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
-    Amount: 5
-  TimeToProduce: 1
+    Amount: 12
+  TimeToProduce: 3
+  SunPowerDependent: 0

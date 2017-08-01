@@ -21,6 +21,8 @@ MonoBehaviour:
     Amount: 250
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
     Amount: 30
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 20
   TimeToBuild: 40
   AllowedRoomType: 0
   ReturnedResources:
@@ -28,6 +30,8 @@ MonoBehaviour:
     Amount: 225
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
     Amount: 25
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 20
   TimeToDestroy: 30
   InResourcesRequired: []
   InResources:

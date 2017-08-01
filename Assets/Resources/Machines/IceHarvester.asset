@@ -14,23 +14,28 @@ MonoBehaviour:
   Name: Ice Harvester
   Icon: {fileID: 21300000, guid: ad5fe56b4f0de5343b735dee02df8dc4, type: 3}
   Prefab: {fileID: 1945300227759200, guid: 9e4ad7be4e6419e459ee51db5017dded, type: 2}
+  Description: 
   RequiredMachines:
   - {fileID: 11400000, guid: 50693be621c257a419b70f7e2c57c459, type: 2}
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 100
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 5
   TimeToBuild: 20
-  AllowedRoomType: 3
+  AllowedRoomType: 2
   ReturnedResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 75
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 10
   TimeToDestroy: 10
   InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
-    Amount: 10
+    Amount: 15
   OutResources:
   - Resource: {fileID: 11400000, guid: 9fd43f95dbf6a534f88eba7e404706b6, type: 2}
-    Amount: 15
-  TimeToProduce: 1
+    Amount: 350
+  TimeToProduce: 7
   SunPowerDependent: 0

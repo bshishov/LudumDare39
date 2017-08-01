@@ -14,6 +14,7 @@ MonoBehaviour:
   Name: Dark Matter Harvester
   Icon: {fileID: 21300000, guid: a07ab048893124b4a86608b21caf523b, type: 3}
   Prefab: {fileID: 1930588796972456, guid: b593cf84f693e1a4495e4a8d10c21aba, type: 2}
+  Description: 
   RequiredMachines:
   - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
   - {fileID: 11400000, guid: 50693be621c257a419b70f7e2c57c459, type: 2}
@@ -33,7 +34,7 @@ MonoBehaviour:
   InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
-    Amount: 3000
+    Amount: 1500
   OutResources:
   - Resource: {fileID: 11400000, guid: 54d7fb70800fcc743bb2ae8bc558da85, type: 2}
     Amount: 1

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Food
   Icon: {fileID: 21300006, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
-  BaseAmount: 1000
+  BaseAmount: 16000
   Description: Any living creature has to eat, and you do too!
   ResourceType: 0

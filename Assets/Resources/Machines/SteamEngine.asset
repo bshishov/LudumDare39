@@ -14,15 +14,20 @@ MonoBehaviour:
   Name: Steam Engine
   Icon: {fileID: 21300000, guid: 7c7eac268aab51942956805b0fa262dd, type: 3}
   Prefab: {fileID: 1607770855381862, guid: b0b26ca68deff6c40ae197ca89c9d64b, type: 2}
+  Description: 
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
-    Amount: 600
+    Amount: 400
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 10
   TimeToBuild: 30
   AllowedRoomType: 0
   ReturnedResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 400
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 10
   TimeToDestroy: 30
   InResourcesRequired: []
   InResources:
@@ -33,5 +38,5 @@ MonoBehaviour:
   OutResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
     Amount: 300
-  TimeToProduce: 1
+  TimeToProduce: 3
   SunPowerDependent: 0

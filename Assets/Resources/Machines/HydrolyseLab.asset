@@ -14,6 +14,7 @@ MonoBehaviour:
   Name: Hydrolyse Lab
   Icon: {fileID: 21300000, guid: 8b34f90fe9d999c4db296fa2458399a6, type: 3}
   Prefab: {fileID: 1022700939757330, guid: 2502358c7596c884dbbec6529c8a0baa, type: 2}
+  Description: 
   RequiredMachines:
   - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
   RequiredToBuildResources:
@@ -21,6 +22,8 @@ MonoBehaviour:
     Amount: 270
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
     Amount: 20
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 10
   TimeToBuild: 15
   AllowedRoomType: 0
   ReturnedResources:
@@ -28,17 +31,19 @@ MonoBehaviour:
     Amount: 200
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
     Amount: 5
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 10
   TimeToDestroy: 15
   InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
-    Amount: 500
+    Amount: 700
   - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
-    Amount: 20
+    Amount: 15
   OutResources:
   - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
-    Amount: 50
+    Amount: 500
   - Resource: {fileID: 11400000, guid: cd787095d6bcdd1448ceea143375cedd, type: 2}
-    Amount: 100
-  TimeToProduce: 1
+    Amount: 150
+  TimeToProduce: 3
   SunPowerDependent: 0
