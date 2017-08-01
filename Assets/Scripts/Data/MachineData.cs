@@ -26,6 +26,7 @@ public class MachineData : ScriptableObject
     public List<ResourceAmount> InResources;
     public List<ResourceAmount> OutResources;
     public float TimeToProduce;
+    public bool SunPowerDependent = false;
 
     public bool CanBeBuilt(MachineSlot machineSlot)
     {
