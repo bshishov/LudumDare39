@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
 using UnityEngine;
@@ -27,6 +28,9 @@ namespace Assets.Scripts
                 Resources.Add(resource, resource.BaseAmount);
             }
             _sunComponent = Sun.GetComponent<Sun>();
+
+            var existingMachines = FindObjectsOfType<Machine>().Select(m => m.MachineData);
+            BuiltMachines.AddRange(existingMachines);
         }	
 	
         void Update ()
@@ -41,7 +45,7 @@ namespace Assets.Scripts
             _timer += Time.deltaTime;
             if (_timer > 1f)
             {
-
+                Consume();
                 _timer = 0;
             }
         }
