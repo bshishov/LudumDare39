@@ -47,7 +47,6 @@ namespace Assets.Scripts
             Machine = Instantiate(machine.Prefab, this.transform).GetComponent<Machine>();
             Machine.transform.localPosition = PlacementOffset;
             GameManager.Instance.BuiltMachines.Add(machine);
-            Machine.GetComponent<AudioSource>().PlayOneShot(Machine.BuildingSound, 0.2f);
             Machine.Place();
             UIBuildIcon.Instance.Hide();
         }
@@ -55,7 +54,6 @@ namespace Assets.Scripts
         public void RemoveMachine()
         {
             GameManager.Instance.BuiltMachines.Remove(Machine.MachineData);
-            Machine.GetComponent<AudioSource>().PlayOneShot(Machine.RemovingSound);
             Machine.Remove();
         }
 

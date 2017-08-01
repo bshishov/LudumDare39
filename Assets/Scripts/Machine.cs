@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.UI;
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -14,8 +15,9 @@ namespace Assets.Scripts
         private Sun _sun;
         private float _statusTimer;
 
-        public AudioClip BuildingSound;
-        public AudioClip RemovingSound;
+        public AudioClipWithVolume BuildingSound;
+        public AudioClipWithVolume RemovingSound;
+        public AudioClipWithVolume OutOfResourcesSound;
 
         public float SunMultiplier
         {
@@ -51,19 +53,11 @@ namespace Assets.Scripts
                 }
                 if (_status != value)
                 {
-                    switch (value)
-                    {
-                        case Statuses.Building:
-                            GetComponent<AudioSource>().PlayOneShot(BuildingSound, 0.2f);
-                            break;
-                        case Statuses.Removing:
-                            GetComponent<AudioSource>().PlayOneShot(RemovingSound, 0.3f);
-                            break;
-                    }
+                    if (StatusChanged != null)
+                        StatusChanged(value);
                 }
 
-                if (StatusChanged != null)
-                    StatusChanged(value);
+                
                 _status = value;
             }
         }
@@ -76,6 +70,7 @@ namespace Assets.Scripts
             _sun = GameManager.Instance.Sun.GetComponent<Sun>();
 
             StatusChanged += OnStatusChange;
+            OnStatusChange(Status);
         }
 
         void Update()
@@ -195,6 +190,23 @@ namespace Assets.Scripts
         {
             if (newStatus == Statuses.Crafting || newStatus == Statuses.Idle)
                 _progressBar.Hide();
+
+            if(newStatus == Statuses.Building)
+                PlaySound(BuildingSound);
+
+            if (newStatus == Statuses.Removing)
+                PlaySound(RemovingSound);
+         
+            if (newStatus == Statuses.Idle)
+                PlaySound(OutOfResourcesSound);
+        }
+
+        private void PlaySound(AudioClipWithVolume clipWithVolume)
+        {
+            if (clipWithVolume != null && clipWithVolume.Clip != null)
+            {
+                GetComponent<AudioSource>().PlayOneShot(clipWithVolume.Clip, clipWithVolume.VolumeModifier);
+            }
         }
     }
 }

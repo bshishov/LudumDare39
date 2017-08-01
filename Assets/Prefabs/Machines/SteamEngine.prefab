@@ -261,8 +261,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MachineData: {fileID: 11400000, guid: 7b0dbc1950d32d541beba34eaddadfa9, type: 2}
-  BuildingSound: {fileID: 8300000, guid: 9632feb1a4baa8b459f152b4233f34d1, type: 3}
-  RemovingSound: {fileID: 8300000, guid: 26361cfc840f2154c9bf740ac37f20fa, type: 3}
+  BuildingSound:
+    Clip: {fileID: 8300000, guid: 26361cfc840f2154c9bf740ac37f20fa, type: 3}
+    VolumeModifier: 0.5
+  RemovingSound:
+    Clip: {fileID: 8300000, guid: 9632feb1a4baa8b459f152b4233f34d1, type: 3}
+    VolumeModifier: 0.5
+  OutOfResourcesSound:
+    Clip: {fileID: 8300000, guid: 443e3f2c3756d7d43bf62df88b469198, type: 3}
+    VolumeModifier: 0.5
 --- !u!114 &114395923775380302
 MonoBehaviour:
   m_ObjectHideFlags: 1

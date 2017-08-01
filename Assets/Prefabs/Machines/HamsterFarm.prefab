@@ -214,7 +214,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -226,7 +226,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114291086502700604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,8 +272,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MachineData: {fileID: 11400000, guid: f3f2f62d4d413cb4983d1d45d9ded228, type: 2}
-  BuildingSound: {fileID: 8300000, guid: 9632feb1a4baa8b459f152b4233f34d1, type: 3}
-  RemovingSound: {fileID: 8300000, guid: 26361cfc840f2154c9bf740ac37f20fa, type: 3}
+  BuildingSound:
+    Clip: {fileID: 8300000, guid: 26361cfc840f2154c9bf740ac37f20fa, type: 3}
+    VolumeModifier: 0.5
+  RemovingSound:
+    Clip: {fileID: 8300000, guid: 9632feb1a4baa8b459f152b4233f34d1, type: 3}
+    VolumeModifier: 0.5
+  OutOfResourcesSound:
+    Clip: {fileID: 8300000, guid: 443e3f2c3756d7d43bf62df88b469198, type: 3}
+    VolumeModifier: 0.5
 --- !u!212 &212173518608782400
 SpriteRenderer:
   m_ObjectHideFlags: 1
