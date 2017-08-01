@@ -3670,7 +3670,7 @@ Prefab:
     - target: {fileID: 114725905540625352, guid: dbc142465c777bf48807f44e0c4e9a35,
         type: 2}
       propertyPath: PlacementOffset.y
-      value: -0.5
+      value: -1.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbc142465c777bf48807f44e0c4e9a35, type: 2}
@@ -4392,9 +4392,9 @@ RectTransform:
   m_Father: {fileID: 1945423782}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 15, y: -70.34}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 15, y: 0}
   m_SizeDelta: {x: 178.27, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1273564365
