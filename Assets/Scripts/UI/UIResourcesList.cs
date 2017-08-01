@@ -10,7 +10,7 @@ namespace Assets.Scripts.UI
         public bool LoadAllAtStart = false;
         public bool AutoTracking = false;
 
-        private Dictionary<ResourceData, UIResourcesListItem> _items = new Dictionary<ResourceData, UIResourcesListItem>();
+        private readonly Dictionary<ResourceData, UIResourcesListItem> _items = new Dictionary<ResourceData, UIResourcesListItem>();
 	
         void Start()
         {
