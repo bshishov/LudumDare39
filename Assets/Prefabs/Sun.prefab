@@ -174,7 +174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4425294725894188}
   - component: {fileID: 33182645010746178}
-  - component: {fileID: 64212939942939686}
   - component: {fileID: 23232140697476292}
   m_Layer: 0
   m_Name: Shine
@@ -813,20 +812,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206227192916380}
   m_Mesh: {fileID: 4300000, guid: f12dab4c2b495c64f84c661e7390b488, type: 3}
---- !u!64 &64212939942939686
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1865314077361756}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114202712772617220
 MonoBehaviour:
   m_ObjectHideFlags: 1

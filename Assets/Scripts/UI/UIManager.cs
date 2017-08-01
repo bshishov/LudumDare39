@@ -10,6 +10,9 @@ namespace Assets.Scripts.UI
         public GameObject HoveredObject { get { return _hoveredObject; } }
         public GameObject ProgressBar;
         public Transform ProgressBarContainer;
+        public GameObject WelcomeScreen;
+        public GameObject LoseScreen;
+        public GameObject WinScreen;
 
         public AudioClipWithVolume HoverSound;
         public AudioClipWithVolume ClickSound;
@@ -25,6 +28,15 @@ namespace Assets.Scripts.UI
         {
             _camera = Camera.main;
             _audioSource = GetComponent<AudioSource>();
+
+            if (WelcomeScreen != null)
+            {
+                if (!PlayerPrefs.HasKey("Welcome"))
+                {
+                    WelcomeScreen.SetActive(true);
+                    PlayerPrefs.SetInt("Welcome", 1);
+                }
+            }
         }
 	
         void Update()
@@ -34,32 +46,33 @@ namespace Assets.Scripts.UI
                 UnHover();
                 return;
             }
-
+            
             var mouseRay = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(mouseRay, out hit, LayerMask.GetMask("Default", "UI")))
+            if (Physics.Raycast(mouseRay, out hit))
             {
                 var go = hit.collider.gameObject;
 
                 if (go != _hoveredObject)
                 {
-                    if (_hoveredObject != null)
-                        _hoveredObject.SendMessage("OnMouseLeave", SendMessageOptions.DontRequireReceiver);
+                    // Another object
+                    UnHover();
 
+                    // Then Enter
                     _hoveredObject = go;
-                    go.SendMessage("OnMouseEnter", SendMessageOptions.DontRequireReceiver);
+                    go.SendMessage("CustomOnMouseEnter", SendMessageOptions.DontRequireReceiver);
                 }
                 
-                go.SendMessage("OnMouseOver", SendMessageOptions.DontRequireReceiver);
+                go.SendMessage("CustomOnMouseOver", SendMessageOptions.DontRequireReceiver);
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    go.SendMessage("OnMouseClick", 0, SendMessageOptions.DontRequireReceiver);
+                    go.SendMessage("CustomOnMouseClick", 0, SendMessageOptions.DontRequireReceiver);
                 }
 
                 if (Input.GetMouseButtonDown(1))
                 {
-                    go.SendMessage("OnRightMouseClick", 0, SendMessageOptions.DontRequireReceiver);
+                    go.SendMessage("CustomOnRightMouseClick", 0, SendMessageOptions.DontRequireReceiver);
                 }
             }
             else
@@ -76,7 +89,7 @@ namespace Assets.Scripts.UI
         private void UnHover()
         {
             if (_hoveredObject != null)
-                _hoveredObject.SendMessage("OnMouseLeave", SendMessageOptions.DontRequireReceiver);
+                _hoveredObject.SendMessage("CustomOnMouseLeave", SendMessageOptions.DontRequireReceiver);
             _hoveredObject = null;
         }
 
@@ -107,6 +120,18 @@ namespace Assets.Scripts.UI
             _audioSource.pitch = pitch;
             if (HoverSound != null && HoverSound.Clip != null)
                 _audioSource.PlayOneShot(HoverSound.Clip, HoverSound.VolumeModifier * mod);
+        }
+
+        public void ShowWinScreen()
+        {
+            if(WinScreen != null)
+                WinScreen.SetActive(true);
+        }
+
+        public void ShowLoseScreen()
+        {
+            if (LoseScreen != null)
+                LoseScreen.SetActive(true);
         }
     }
 }

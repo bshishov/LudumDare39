@@ -57,7 +57,7 @@ namespace Assets.Scripts
             Machine.Remove();
         }
 
-        public void OnMouseClick()
+        public void CustomOnMouseClick()
         {
             if (!HasMachine)
             {
@@ -67,7 +67,7 @@ namespace Assets.Scripts
             }
         }
 
-        public void OnMouseEnter()
+        public void CustomOnMouseEnter()
         {
             if (!HasMachine)
             {
@@ -77,7 +77,7 @@ namespace Assets.Scripts
             }
         }
 
-        public void OnMouseLeave()
+        public void CustomOnMouseLeave()
         {
             if (!HasMachine)
             {

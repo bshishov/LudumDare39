@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlacementOffset: {x: 0, y: -1.9, z: 0}
-  Machine: {fileID: 0}
+  Machine: {fileID: 114743416026757976}
   RoomType: 1
 --- !u!114 &114743416026757976
 MonoBehaviour:
@@ -217,8 +217,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MachineData: {fileID: 11400000, guid: d5d3cdca0ea4c164bac958d7c179947a, type: 2}
-  BuildingSound: {fileID: 8300000, guid: 9632feb1a4baa8b459f152b4233f34d1, type: 3}
-  RemovingSound: {fileID: 8300000, guid: 26361cfc840f2154c9bf740ac37f20fa, type: 3}
+  BuildingSound:
+    Clip: {fileID: 0}
+    VolumeModifier: 1
+  RemovingSound:
+    Clip: {fileID: 0}
+    VolumeModifier: 1
+  OutOfResourcesSound:
+    Clip: {fileID: 0}
+    VolumeModifier: 1
 --- !u!212 &212079446643402436
 SpriteRenderer:
   m_ObjectHideFlags: 1

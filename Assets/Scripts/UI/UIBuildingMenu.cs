@@ -46,6 +46,7 @@ namespace Assets.Scripts.UI
 
         public void Show(MachineSlot slot)
         {
+            MachinesList.Clear();
             _isActive = true;
             _follow.SetTarget(slot.gameObject);
 
@@ -53,7 +54,10 @@ namespace Assets.Scripts.UI
             {
                 foreach (var machine in _machines)
                 {
-                    MachinesList.Add(machine, slot);
+                    if (machine.AllowedRoomType == slot.RoomType)
+                    {
+                        MachinesList.Add(machine, slot);
+                    }
                 }
             }
 

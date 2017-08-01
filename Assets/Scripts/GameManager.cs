@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Data;
+using Assets.Scripts.UI;
 using Assets.Scripts.Utils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
     public class GameManager : Singleton<GameManager>
     {
+        public bool IsActive { get; private set; }
         public Dictionary<ResourceData, float> Resources = new Dictionary<ResourceData, float>();
 
         public List<MachineData> BuiltMachines = new List<MachineData>();
@@ -16,6 +20,14 @@ namespace Assets.Scripts
         public GameObject Sun;
         public float TimeForSunToGoOut;
 
+        [Header("Winning")]
+        public ResourceAmount WinningCondition;
+        public float WinTimer = 480;
+
+        [Header("Game Over")]
+        public ResourceAmount[] LosingCondition;
+
+        private bool _active;
         private Sun _sunComponent;
         private float _timer = 0f;
 
@@ -31,8 +43,18 @@ namespace Assets.Scripts
 
             var existingMachines = FindObjectsOfType<Machine>().Select(m => m.MachineData);
             BuiltMachines.AddRange(existingMachines);
-        }	
-	
+            IsActive = true;
+        }
+
+        IEnumerator CheckWin()
+        {
+            yield return new WaitForSeconds(WinTimer);
+            if (HasResourceAmount(WinningCondition))
+            {
+                UIManager.Instance.ShowWinScreen();
+            }
+        }
+
         void Update ()
         {
             if (_sunComponent.Temperature > 0f)
@@ -47,6 +69,19 @@ namespace Assets.Scripts
             {
                 Consume();
                 _timer = 0;
+            }
+
+            if (IsActive)
+            {
+                foreach (var amount in LosingCondition)
+                {
+                    if (Resources[amount.Resource] < amount.Amount)
+                    {
+                        UIManager.Instance.ShowLoseScreen();
+                        _active = false;
+                        break;
+                    }
+                }
             }
         }
 
@@ -71,6 +106,27 @@ namespace Assets.Scripts
         public void IncreaseResource(ResourceAmount resource, float multiplier = 1)
         {
             Resources[resource.Resource] = resource.Amount * multiplier + Resources[resource.Resource];
+        }
+
+        public void Restart()
+        {
+            var fader = UIScreenFader.Instance;
+            if (fader != null)
+            {
+                fader.FadeIn();
+                StartCoroutine(RestartDelayed(fader.FadeTime));
+            }
+        }
+
+        private IEnumerator RestartDelayed(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void ToggleAudio()
+        {
+            AudioListener.volume = 1 - AudioListener.volume;
         }
     }
 }

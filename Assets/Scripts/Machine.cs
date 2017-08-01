@@ -175,13 +175,13 @@ namespace Assets.Scripts
             _progressBar.Show();
         }
 
-        public void OnMouseEnter()
+        public void CustomOnMouseEnter()
         {
             UITooltip.Instance.Show(this);
             UIManager.Instance.PlayHoverSound();
         }
 
-        public void OnMouseLeave()
+        public void CustomOnMouseLeave()
         {
             UITooltip.Instance.Hide();   
         }

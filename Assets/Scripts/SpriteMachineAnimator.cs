@@ -46,12 +46,12 @@ namespace Assets.Scripts
         {
         }
 
-        public void OnMouseEnter()
+        public void CustomOnMouseEnter()
         {
             _renderer.material.SetColor("_Highlight", new Color(0.2f, 0.2f, 0.2f, 1f));
         }
 
-        public void OnMouseLeave()
+        public void CustomOnMouseLeave()
         {
             _renderer.material.SetColor("_Highlight", Color.black);
         }
