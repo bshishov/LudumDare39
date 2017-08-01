@@ -114,7 +114,7 @@ namespace Assets.Scripts
                     if (TickTimer(MachineData.TimeToProduce))
                     {
                         _statusTimer = 0;
-                        GainResources(MachineData.OutResources);
+                        GainResources(MachineData.OutResources, true);
 
                         if (HasEnoughResourcesToProduce())
                         {
@@ -157,11 +157,11 @@ namespace Assets.Scripts
             }
         }
 
-        public void GainResources(IEnumerable<ResourceAmount> resources)
+        public void GainResources(IEnumerable<ResourceAmount> resources, bool multiplied = false)
         {
             foreach (var resourceAmount in resources)
             {
-                GameManager.Instance.IncreaseResource(resourceAmount, SunMultiplier);
+                GameManager.Instance.IncreaseResource(resourceAmount, multiplied ? SunMultiplier : 1);
             }
         }
 
