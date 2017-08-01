@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: HydrolyseLab
   m_EditorClassIdentifier: 
   Name: Hydrolyse Lab
-  Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 8b34f90fe9d999c4db296fa2458399a6, type: 3}
+  Prefab: {fileID: 1022700939757330, guid: 2502358c7596c884dbbec6529c8a0baa, type: 2}
   RequiredMachines:
   - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
   RequiredToBuildResources:
@@ -41,3 +41,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: cd787095d6bcdd1448ceea143375cedd, type: 2}
     Amount: 100
   TimeToProduce: 1
+  SunPowerDependent: 0

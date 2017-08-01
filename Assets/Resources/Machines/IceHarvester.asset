@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: IceHarvester
   m_EditorClassIdentifier: 
   Name: Ice Harvester
-  Icon: {fileID: 21300000, guid: 51c7a6953747c85438704c06661a0870, type: 3}
+  Icon: {fileID: 21300000, guid: ad5fe56b4f0de5343b735dee02df8dc4, type: 3}
   Prefab: {fileID: 1945300227759200, guid: 9e4ad7be4e6419e459ee51db5017dded, type: 2}
   RequiredMachines:
   - {fileID: 11400000, guid: 50693be621c257a419b70f7e2c57c459, type: 2}

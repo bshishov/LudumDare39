@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ThermonuclearKitchen
   m_EditorClassIdentifier: 
   Name: Thermonuclear Kitchen
-  Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Icon: {fileID: 21300000, guid: d9c25189f80b6bf44890fa0b347c53b8, type: 3}
+  Prefab: {fileID: 1372009625846236, guid: b75b2559b773e2247bacf4045c53b0bc, type: 2}
   RequiredMachines:
   - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
   RequiredToBuildResources:
@@ -39,3 +39,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
     Amount: 40
   TimeToProduce: 1
+  SunPowerDependent: 0

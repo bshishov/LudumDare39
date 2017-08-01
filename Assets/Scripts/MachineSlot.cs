@@ -59,6 +59,7 @@ namespace Assets.Scripts
 
         public void OnMouseClick()
         {
+            UIBuildIcon.Instance.Show(gameObject);
             UIBuildingMenu.Instance.Show(this);
         }
 

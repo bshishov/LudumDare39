@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: GasHarvester
   m_EditorClassIdentifier: 
   Name: Gas Harvester
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: ad5fe56b4f0de5343b735dee02df8dc4, type: 3}
   Prefab: {fileID: 0}
   RequiredMachines:
   - {fileID: 11400000, guid: 50693be621c257a419b70f7e2c57c459, type: 2}
@@ -33,3 +33,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: cd787095d6bcdd1448ceea143375cedd, type: 2}
     Amount: 300
   TimeToProduce: 1
+  SunPowerDependent: 0

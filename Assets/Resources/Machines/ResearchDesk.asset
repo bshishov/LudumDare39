@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ResearchDesk
   m_EditorClassIdentifier: 
   Name: Research Desk
-  Icon: {fileID: 0}
-  Prefab: {fileID: 1324563685224396, guid: 39f87c47ffe2c0147931db55e96721e1, type: 2}
+  Icon: {fileID: 21300002, guid: d1ea15f74d7a9ad49b723575b95bc441, type: 3}
+  Prefab: {fileID: 1102507739123236, guid: eb22dc7520ca95148b414f817f9fade6, type: 2}
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
@@ -34,3 +34,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: 89cb67b8d5d517c4d8e1a970033b8741, type: 2}
     Amount: 25
   TimeToProduce: 1
+  SunPowerDependent: 0

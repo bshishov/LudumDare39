@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: SteamEngine
   m_EditorClassIdentifier: 
   Name: Steam Engine
-  Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 7c7eac268aab51942956805b0fa262dd, type: 3}
+  Prefab: {fileID: 1607770855381862, guid: b0b26ca68deff6c40ae197ca89c9d64b, type: 2}
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
@@ -34,3 +34,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
     Amount: 300
   TimeToProduce: 1
+  SunPowerDependent: 0
