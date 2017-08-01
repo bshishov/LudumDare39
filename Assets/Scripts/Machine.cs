@@ -10,7 +10,21 @@ namespace Assets.Scripts
         public MachineData MachineData;
         private UIProgressBar _progressBar;
         private SpriteRenderer _renderer;
-        private Material _sunMaterial;
+        private Sun _sun;
+        private float _statusTimer;
+
+        public float SunMultiplier
+        {
+            get
+            {
+                var multiplier = 1f;
+                if (MachineData.SunPowerDependent)
+                {
+                    multiplier = _sun.Temperature;
+                }
+                return multiplier;
+            }
+        }
 
         public enum Statuses
         {
@@ -37,13 +51,12 @@ namespace Assets.Scripts
             }
         }
 
-        private float _statusTimer;
 
         public void Start()
         {
             _renderer = GetComponent<SpriteRenderer>();
             _progressBar = UIManager.Instance.CreateProgressBar(gameObject);
-            _sunMaterial = GameManager.Instance.Sun.GetComponent<MeshRenderer>().material;
+            _sun = GameManager.Instance.Sun.GetComponent<Sun>();
         }
 
         void Update()
@@ -65,7 +78,7 @@ namespace Assets.Scripts
                             Status = Statuses.Idle;
                         }
                     }
-                    _progressBar.Value = _statusTimer / (MachineData.TimeToBuild);
+                    _progressBar.Value = _statusTimer / MachineData.TimeToBuild;
                     break;
                 case Statuses.Removing:
                     if (TickTimer(MachineData.TimeToDestroy))
@@ -75,7 +88,7 @@ namespace Assets.Scripts
                         GainResources(MachineData.ReturnedResources);
                         _progressBar.Hide();
                     }
-                    _progressBar.Value = _statusTimer / (MachineData.TimeToBuild);
+                    _progressBar.Value = _statusTimer / MachineData.TimeToBuild;
                     break;
                 case Statuses.Crafting:
                     if (TickTimer(MachineData.TimeToProduce))
@@ -126,16 +139,9 @@ namespace Assets.Scripts
 
         public void GainResources(IEnumerable<ResourceAmount> resources)
         {
-            var multiplier = 1f;
-            if (MachineData.SunPowerDependent)
-            {
-                multiplier = _sunMaterial.GetFloat("_Temperature");
-            }
-
             foreach (var resourceAmount in resources)
             {
-                resourceAmount.Amount *= multiplier;
-                GameManager.Instance.IncreaseResource(resourceAmount);
+                GameManager.Instance.IncreaseResource(resourceAmount, SunMultiplier);
             }
         }
 

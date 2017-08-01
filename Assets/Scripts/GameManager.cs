@@ -42,14 +42,14 @@ namespace Assets.Scripts
             return Resources[resource.Resource] > resource.Amount;
         }
 
-        public void DecreaseResource(ResourceAmount resource)
+        public void DecreaseResource(ResourceAmount resource, float multiplier = 1)
         {
-            Resources[resource.Resource] = Resources[resource.Resource] - resource.Amount;
+            Resources[resource.Resource] = Resources[resource.Resource] - resource.Amount * multiplier;
         }
 
-        public void IncreaseResource(ResourceAmount resource)
+        public void IncreaseResource(ResourceAmount resource, float multiplier = 1)
         {
-            Resources[resource.Resource] = resource.Amount + Resources[resource.Resource];
+            Resources[resource.Resource] = resource.Amount * multiplier + Resources[resource.Resource];
         }
     }
 }

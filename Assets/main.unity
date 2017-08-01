@@ -2460,10 +2460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171a2afb72dd1554d8849c441a9c02f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SunMaterials:
-  - {fileID: 2100000, guid: 7d4654c7bc55881409444976e760f327, type: 2}
-  - {fileID: 2100000, guid: a92dd958e90bdc4458f05e49b9f2a4f1, type: 2}
-  - {fileID: 2100000, guid: 6a92a54fa6885dc4f9fc278d3737928b, type: 2}
 --- !u!33 &850428779
 MeshFilter:
   m_ObjectHideFlags: 0
