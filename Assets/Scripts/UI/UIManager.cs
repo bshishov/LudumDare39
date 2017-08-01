@@ -9,6 +9,7 @@ namespace Assets.Scripts.UI
     {
         public GameObject HoveredObject { get { return _hoveredObject; } }
         public GameObject ProgressBar;
+        public Transform ProgressBarContainer;
 
         public AudioClipWithVolume HoverSound;
         public AudioClipWithVolume ClickSound;
@@ -81,7 +82,7 @@ namespace Assets.Scripts.UI
 
         public UIProgressBar CreateProgressBar(GameObject go)
         {
-            var pbObject = (GameObject) Instantiate(ProgressBar, transform);
+            var pbObject = (GameObject) Instantiate(ProgressBar, ProgressBarContainer);
             var pb = pbObject.GetComponent<UIProgressBar>();
             var follow = pbObject.GetComponent<UIFollowSceneObject>();
             follow.Target = go;
