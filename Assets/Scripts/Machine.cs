@@ -55,7 +55,8 @@ namespace Assets.Scripts
 
         public void Start()
         {
-            _progressBar = UIManager.Instance.CreateProgressBar(gameObject);
+            if(_progressBar == null)
+                _progressBar = UIManager.Instance.CreateProgressBar(gameObject);
             _sun = GameManager.Instance.Sun.GetComponent<Sun>();
 
             StatusChanged += OnStatusChange;
