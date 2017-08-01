@@ -1,33 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UIFollowSceneObject : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public GameObject Target;
-    public Vector3 Offset;
-
-    private Camera _main;
-
-	void Start ()
+    public class UIFollowSceneObject : MonoBehaviour
     {
-        _main = Camera.main;
-        var rectTransform = GetComponent<RectTransform>();
+        public GameObject Target;
+        public Vector3 Offset;
 
-        /*
-        if (rectTransform != null)
+        private Camera _main;
+
+        void Start ()
         {
-            rectTransform.anchorMin = Vector2.zero;
-            rectTransform.anchorMax = Vector2.one;
-        }*/
-	}	
+            _main = Camera.main;
+        }	
 	
-	void Update ()
-    {	
-        if(Target != null)
-        {
-            var scr = _main.WorldToScreenPoint(Target.transform.position + Offset);
-            transform.position = new Vector3(scr.x, scr.y, transform.position.z);
+        void Update ()
+        {	
+            if(Target != null)
+            {
+                var scr = _main.WorldToScreenPoint(Target.transform.position + Offset);
+                transform.position = new Vector3(scr.x, scr.y, transform.position.z);
+            }
         }
-	}
+
+        public void SetTarget(GameObject target)
+        {
+            Target = target;
+            if (Target != null)
+            {
+                var scr = _main.WorldToScreenPoint(Target.transform.position + Offset);
+                transform.position = new Vector3(scr.x, scr.y, transform.position.z);
+            }
+        }
+    }
 }

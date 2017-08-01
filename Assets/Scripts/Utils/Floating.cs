@@ -9,7 +9,7 @@ namespace Assets.Scripts.Utils
 
         void Start ()
         {
-            _offset = Random.value;
+            _offset = Random.value * Mathf.PI * 2;
         }
 	
         // Update is called once per frame

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.UI;
 using UnityEngine;
@@ -8,8 +9,8 @@ namespace Assets.Scripts
     public class Machine : MonoBehaviour
     {
         public MachineData MachineData;
+        public event Action<Statuses> StatusChanged;
         private UIProgressBar _progressBar;
-        private SpriteRenderer _renderer;
         private Sun _sun;
         private float _statusTimer;
 
@@ -45,8 +46,8 @@ namespace Assets.Scripts
                 {
                     return;
                 }
-                if (value != _status)
-                    OnStatusChange(_status, value);
+                if (StatusChanged != null)
+                    StatusChanged(value);
                 _status = value;
             }
         }
@@ -54,9 +55,10 @@ namespace Assets.Scripts
 
         public void Start()
         {
-            _renderer = GetComponent<SpriteRenderer>();
             _progressBar = UIManager.Instance.CreateProgressBar(gameObject);
             _sun = GameManager.Instance.Sun.GetComponent<Sun>();
+
+            StatusChanged += OnStatusChange;
         }
 
         void Update()
@@ -87,6 +89,7 @@ namespace Assets.Scripts
                         GameObject.Destroy(gameObject);
                         GainResources(MachineData.ReturnedResources);
                         _progressBar.Hide();
+                        Destroy(_progressBar.gameObject);
                     }
                     _progressBar.Value = _statusTimer / MachineData.TimeToBuild;
                     break;
@@ -162,56 +165,16 @@ namespace Assets.Scripts
 
         public void OnMouseEnter()
         {
-            _renderer.material.color = new Color(0.2f, 0.2f, 0.2f, 1f);
             UITooltip.Instance.Show(this);
         }
 
         public void OnMouseLeave()
         {
-            _renderer.material.color = Color.black;
             UITooltip.Instance.Hide();   
         }
 
-        private void OnStatusChange(Statuses oldStatus, Statuses newStatus)
+        private void OnStatusChange(Statuses newStatus)
         {
-            if (newStatus == Statuses.Building)
-            {
-                if (_renderer == null)
-                    _renderer = GetComponent<SpriteRenderer>();
-                _renderer.material.color = new Color(0, 0, 0, 0.5f);
-            }
-            else
-            {
-                _renderer.material.color = Color.black;
-            }
-
-            if (newStatus == Statuses.Crafting)
-            {
-                StartAnimation();
-            }
-            else
-            {
-                StopAnimation();
-            }
-
-            if (newStatus == Statuses.Idle)
-            {
-                _renderer.material.color = Color.red;
-            }
-            else
-            {
-                _renderer.material.color = Color.black;
-            }
-        }
-
-        private void StartAnimation()
-        {
-            _renderer.material.SetFloat("_AnimationSpeed", 3);
-        }
-
-        private void StopAnimation()
-        {
-            _renderer.material.SetFloat("_AnimationSpeed", 0);
         }
     }
 }

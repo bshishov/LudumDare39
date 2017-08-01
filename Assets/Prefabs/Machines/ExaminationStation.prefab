@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212689239334996962}
   - component: {fileID: 114950993597819028}
   - component: {fileID: 65445166272610140}
+  - component: {fileID: 114281525780315632}
   m_Layer: 0
   m_Name: ExaminationStation
   m_TagString: Untagged
@@ -54,6 +55,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12, z: 0.2}
   m_Center: {x: 0, y: 2.56, z: 0}
+--- !u!114 &114281525780315632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592176987544968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe995760e0b914e8976d6933ea7871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114950993597819028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6d54d259d3cc08f469d7a0eff609dadd, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

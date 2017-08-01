@@ -5,26 +5,26 @@ namespace Assets.Scripts.UI
 {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(Button))]
-    public class UIMachineIcon : MonoBehaviour
+    public class UIMachineListItem : MonoBehaviour
     {
-        public MachineData Machine {get { return _machine; }}
+        public MachineData Machine { get { return _machine; }}
+        public Image Icon;
+        public Text NameLabel;
         private MachineData _machine;
-        private Image _image;
         private Button _button;
-        private MachineSlot _context;
+        private MachineSlot _slot;
 
         void Start ()
         {
-            _image = GetComponent<Image>();
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnClick);
         }
 	
         void Update ()
         {
-            if(_machine != null && _context != null)
+            if(_machine != null && _slot != null)
             {
-                if (_machine.CanBeBuilt(_context))
+                if (_machine.CanBeBuilt(_slot))
                 {
                     _button.interactable = true;
                 }
@@ -33,36 +33,36 @@ namespace Assets.Scripts.UI
                     _button.interactable = false;
                 }
             }
-            else
-            {
-                _button.interactable = false;
-            }
         }
 
         public void SetMachineData(MachineData data)
         {
             _machine = data;
+
             if (data.Icon == null)
             {
                 Debug.LogWarning(string.Format("No icon for {0}", _machine.name));
             }
             else
             {
-                _image = GetComponent<Image>();
-                _image.sprite = data.Icon;
+                if (Icon != null)
+                    Icon.sprite = data.Icon;
             }
+
+            if (NameLabel != null)
+                NameLabel.text = Machine.Name;
         }
 
-        public void SetRoom(MachineSlot context)
+        public void SetSlot(MachineSlot slot)
         {
-            _context = context;
+            _slot = slot;
         }
 
         private void OnClick()
         {
-            if (_context != null && _machine != null)
+            if (_slot != null && _machine != null)
             {
-                _context.PlaceMachine(_machine);
+                _slot.PlaceMachine(_machine);
                 UIBuildingMenu.Instance.Hide();
             }
         }

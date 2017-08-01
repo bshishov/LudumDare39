@@ -7,19 +7,19 @@ using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.UI
 {
-    [RequireComponent(typeof(UIMachineIcon))]
+    [RequireComponent(typeof(UIMachineListItem))]
     class UIMachineEventTrigger : EventTrigger
     {
         public override void OnPointerEnter(PointerEventData data)
         {
-            var item = GetComponent<UIMachineIcon>();
+            var item = GetComponent<UIMachineListItem>();
             if (item != null && item.Machine != null)
                 UITooltip.Instance.Show(item.Machine);
         }
 
         public override void OnPointerExit(PointerEventData data)
         {
-            var item = GetComponent<UIMachineIcon>();
+            var item = GetComponent<UIMachineListItem>();
             if (item != null && item.Machine != null)
                 UITooltip.Instance.Hide();
         }

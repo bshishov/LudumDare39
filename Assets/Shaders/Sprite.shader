@@ -5,7 +5,8 @@ Shader "Custom/Sprite"
 	Properties
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
-		_Color("Tint", Color) = (0,0,0,1)
+		[PerRendererData] _Color("Color", Color) = (1,1,1,1)
+		[PerRendererData] _Highlight("Highlight", Color) = (0,0,0,1)
 		[MaterialToggle] PixelSnap("Pixel snap", Float) = 0
 		_AnimationSpeed("Animation Speed", Float) = 0
 	}
@@ -50,6 +51,7 @@ Shader "Custom/Sprite"
 			};
 
 			fixed4 _Color;
+			fixed4 _Highlight;
 			fixed _AnimationSpeed;
 
 			v2f vert(appdata_t IN)
@@ -70,9 +72,9 @@ Shader "Custom/Sprite"
 
 			fixed4 frag(v2f IN) : SV_Target
 			{
-				fixed4 c = saturate(tex2D(_MainTex, IN.texcoord) + IN.color);			
-				c.a *= IN.color.a;
-				c.rgb *= c.a;
+				fixed4 c = tex2D(_MainTex, IN.texcoord) * IN.color;
+				c.rgb = saturate(c.rgb + _Highlight.rgb);				
+				c.rgb *= c.a;				
 				return c;
 			}
 			ENDCG

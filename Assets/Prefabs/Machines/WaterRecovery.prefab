@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212771476529990136}
   - component: {fileID: 114417760027182830}
   - component: {fileID: 65397806585607932}
+  - component: {fileID: 114681200288996836}
   m_Layer: 0
   m_Name: WaterRecovery
   m_TagString: Untagged
@@ -66,6 +67,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MachineData: {fileID: 11400000, guid: da1c04b7b008b714eb828c8bfc872c26, type: 2}
+--- !u!114 &114681200288996836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670839591823708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe995760e0b914e8976d6933ea7871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212771476529990136
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7d1343447f7dcb24985e6d543c506870, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

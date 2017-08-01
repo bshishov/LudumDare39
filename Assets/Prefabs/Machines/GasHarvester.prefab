@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212301131553942146}
   - component: {fileID: 114752080137744582}
   - component: {fileID: 65450928611876550}
+  - component: {fileID: 114452109129466754}
   m_Layer: 0
   m_Name: GasHarvester
   m_TagString: Untagged
@@ -54,6 +55,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12, z: 0.2}
   m_Center: {x: -0.15436745, y: 0.47218227, z: 0}
+--- !u!114 &114452109129466754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437321833258814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe995760e0b914e8976d6933ea7871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114752080137744582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ad5fe56b4f0de5343b735dee02df8dc4, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

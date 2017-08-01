@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212971727609781224}
   - component: {fileID: 114205289120479800}
   - component: {fileID: 65247181553481964}
+  - component: {fileID: 114585611333496994}
   m_Layer: 0
   m_Name: LivingQuarters
   m_TagString: Untagged
@@ -66,6 +67,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MachineData: {fileID: 11400000, guid: 9477fbaf07d767345a6ecd866a809394, type: 2}
+--- !u!114 &114585611333496994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1311193664652108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe995760e0b914e8976d6933ea7871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212971727609781224
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 219cea19d9022fe4499bb89b8b71126f, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

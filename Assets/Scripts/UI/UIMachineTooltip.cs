@@ -14,6 +14,7 @@ namespace Assets.Scripts.UI
         public Text RequiredTime;
         //public Text _description;
 
+        public UIMachinesList RequiredMachines;
         public UIResourcesList RequiredResources;
         public UIResourcesList InResources;
         public UIResourcesList OutResources;
@@ -96,6 +97,15 @@ namespace Assets.Scripts.UI
                     RequiredResources.Add(res);
                 }
             }
+
+            if (RequiredMachines != null)
+            {
+                RequiredMachines.Clear();
+                foreach (var machine in _machineData.RequiredMachines)
+                {
+                    RequiredMachines.Add(machine);
+                }
+            }
         }
         
         public void SetMachine(Machine machine)
@@ -111,10 +121,10 @@ namespace Assets.Scripts.UI
                 switch (machine.Status)
                 {
                     case Machine.Statuses.Idle:
-                        text = "Idle";
+                        text = "<color=red>Not enough resources</color>";
                         break;
                     case Machine.Statuses.Building:
-                        text = "Building";
+                        text = "Construction...";
                         break;
                     case Machine.Statuses.Crafting:
                         text = "Producing";

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212909446702858302}
   - component: {fileID: 114426236663820690}
   - component: {fileID: 65933011634071388}
+  - component: {fileID: 114238944112883454}
   m_Layer: 0
   m_Name: FoodPrinter
   m_TagString: Untagged
@@ -54,6 +55,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12, z: 0.2}
   m_Center: {x: -0.004540205, y: 2.5606809, z: 0}
+--- !u!114 &114238944112883454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306598676076614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe995760e0b914e8976d6933ea7871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114426236663820690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: df427f5bcc5c66f4790924940602eef0, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
 {
@@ -25,7 +26,20 @@ namespace Assets.Scripts.UI
         
         void Update ()
         {
-            transform.position = Input.mousePosition;
+            var mouse = Input.mousePosition;
+
+            if (_currentTootlip != null)
+            {
+                var h = ((RectTransform) _currentTootlip.transform).rect.height;
+                if (mouse.y < h)
+                {
+                    transform.position = new Vector3(mouse.x, h, 0);
+                }
+                else
+                {
+                    transform.position = mouse;
+                }
+            }
         }
 
         public void ShowContainer()

@@ -27,8 +27,8 @@ namespace Assets.Scripts
             _light = GetComponentInChildren<Light>();
             if (Machine == null)
             {
-                if(_light != null)
-                    _light.intensity = 0f;
+               // if(_light != null)
+                 //   _light.intensity = 0f;
             }
         }
 

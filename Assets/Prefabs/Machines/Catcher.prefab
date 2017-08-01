@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 212025130743066010}
   - component: {fileID: 114755111148672798}
   - component: {fileID: 65943290100978788}
+  - component: {fileID: 114307791245253114}
   m_Layer: 0
-  m_Name: DarkMatterExtractor
+  m_Name: Catcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,6 +55,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12, z: 0.2}
   m_Center: {x: -0.1452868, y: 2.54252, z: 0}
+--- !u!114 &114307791245253114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1879200324227044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe995760e0b914e8976d6933ea7871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114755111148672798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7964502b9df6f7e489f44128f721f42f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MachineData: {fileID: 11400000, guid: b293c72cdc96e4e4c8b2293002e04ecb, type: 2}
+  MachineData: {fileID: 11400000, guid: 5dcc412b4f20ca54fad5ca75688c383b, type: 2}
 --- !u!212 &212025130743066010
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -99,7 +111,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 14a6a138cf328dd438ec8cb7d549d633, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

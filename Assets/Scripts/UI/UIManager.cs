@@ -38,8 +38,7 @@ namespace Assets.Scripts.UI
                     _hoveredObject = go;
                     go.SendMessage("OnMouseEnter", SendMessageOptions.DontRequireReceiver);
                 }
-
-                Debug.Log(hit);
+                
                 go.SendMessage("OnMouseOver", SendMessageOptions.DontRequireReceiver);
 
                 if (Input.GetMouseButtonDown(0))
