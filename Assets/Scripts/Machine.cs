@@ -183,6 +183,7 @@ namespace Assets.Scripts
         public void OnMouseEnter()
         {
             UITooltip.Instance.Show(this);
+            UIManager.Instance.PlayHoverSound();
         }
 
         public void OnMouseLeave()

@@ -4,17 +4,26 @@ using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.UI
 {
+    [RequireComponent(typeof(AudioSource))]
     public class UIManager : Singleton<UIManager>
     {
         public GameObject HoveredObject { get { return _hoveredObject; } }
         public GameObject ProgressBar;
 
+        public AudioClipWithVolume HoverSound;
+        public AudioClipWithVolume ClickSound;
+
         private Camera _camera;
+        private AudioSource _audioSource;
         private GameObject _hoveredObject;
+        private float _microDelay;
+
+        const float MicroDelay = 0.1f;
         
         void Start()
         {
             _camera = Camera.main;
+            _audioSource = GetComponent<AudioSource>();
         }
 	
         void Update()
@@ -43,10 +52,14 @@ namespace Assets.Scripts.UI
                 go.SendMessage("OnMouseOver", SendMessageOptions.DontRequireReceiver);
 
                 if (Input.GetMouseButtonDown(0))
+                {
                     go.SendMessage("OnMouseClick", 0, SendMessageOptions.DontRequireReceiver);
+                }
 
                 if (Input.GetMouseButtonDown(1))
+                {
                     go.SendMessage("OnRightMouseClick", 0, SendMessageOptions.DontRequireReceiver);
+                }
             }
             else
             {
@@ -73,6 +86,26 @@ namespace Assets.Scripts.UI
             var follow = pbObject.GetComponent<UIFollowSceneObject>();
             follow.Target = go;
             return pb;
+        }
+
+        public void PlayClickSound(float mod = 1f, float pitch = 1f)
+        {
+            if(Time.time - _microDelay < MicroDelay)
+                return;
+            _microDelay = Time.time;
+            _audioSource.pitch = pitch;
+            if (ClickSound != null && ClickSound.Clip != null)
+                _audioSource.PlayOneShot(ClickSound.Clip, ClickSound.VolumeModifier * mod);
+        }
+
+        public void PlayHoverSound(float mod = 1f, float pitch = 1f)
+        {
+            if (Time.time - _microDelay < MicroDelay)
+                return;
+            _microDelay = Time.time;
+            _audioSource.pitch = pitch;
+            if (HoverSound != null && HoverSound.Clip != null)
+                _audioSource.PlayOneShot(HoverSound.Clip, HoverSound.VolumeModifier * mod);
         }
     }
 }

@@ -33,8 +33,11 @@ namespace Assets.Scripts.UI
                     if (obj != null)
                     {
                         var machine = obj.GetComponent<Machine>();
-                        if(machine != null)
+                        if (machine != null)
+                        {
+                            UIManager.Instance.PlayClickSound();
                             machine.Remove();
+                        }
                     }
                     Reset();
                 }
@@ -46,6 +49,7 @@ namespace Assets.Scripts.UI
             _isRemoving = true;
             _image.raycastTarget = false;
             _button.interactable = false;
+            UIManager.Instance.PlayClickSound();
         }
 
         public void Reset()

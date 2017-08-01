@@ -13,8 +13,11 @@ namespace Assets.Scripts.UI
         public override void OnPointerEnter(PointerEventData data)
         {
             var item = GetComponent<UIResourcesListItem>();
-            if(item != null && item.Resource != null)
+            if (item != null && item.Resource != null)
+            {
                 UITooltip.Instance.Show(item.Resource);
+                UIManager.Instance.PlayHoverSound();
+            }
         }
 
         public override void OnPointerExit(PointerEventData data)

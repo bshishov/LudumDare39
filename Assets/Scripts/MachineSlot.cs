@@ -47,6 +47,7 @@ namespace Assets.Scripts
             Machine = Instantiate(machine.Prefab, this.transform).GetComponent<Machine>();
             Machine.transform.localPosition = PlacementOffset;
             GameManager.Instance.BuiltMachines.Add(machine);
+            Machine.GetComponent<AudioSource>().PlayOneShot(Machine.BuildingSound, 0.2f);
             Machine.Place();
             UIBuildIcon.Instance.Hide();
         }
@@ -54,13 +55,18 @@ namespace Assets.Scripts
         public void RemoveMachine()
         {
             GameManager.Instance.BuiltMachines.Remove(Machine.MachineData);
+            Machine.GetComponent<AudioSource>().PlayOneShot(Machine.RemovingSound);
             Machine.Remove();
         }
 
         public void OnMouseClick()
         {
-            UIBuildIcon.Instance.Show(gameObject);
-            UIBuildingMenu.Instance.Show(this);
+            if (!HasMachine)
+            {
+                UIBuildIcon.Instance.Show(gameObject);
+                UIBuildingMenu.Instance.Show(this);
+                UIManager.Instance.PlayClickSound();
+            }
         }
 
         public void OnMouseEnter()
@@ -69,6 +75,7 @@ namespace Assets.Scripts
             {
                 if (!UIBuildingMenu.Instance.IsActive)
                     UIBuildIcon.Instance.Show(gameObject);
+                UIManager.Instance.PlayHoverSound(pitch: 0.8f);
             }
         }
 

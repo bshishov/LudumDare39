@@ -14,7 +14,10 @@ namespace Assets.Scripts.UI
         {
             var item = GetComponent<UIMachineListItem>();
             if (item != null && item.Machine != null)
+            {
                 UITooltip.Instance.Show(item.Machine);
+                UIManager.Instance.PlayHoverSound();
+            }
         }
 
         public override void OnPointerExit(PointerEventData data)
