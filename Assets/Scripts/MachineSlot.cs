@@ -10,6 +10,9 @@ namespace Assets.Scripts
     
         public Machine Machine;
         private Light _light;
+        private Renderer _renderer;
+        private Color _withoutMachine = new Color(0.5f, 0.5f, 0.5f, 1f);
+        private Color _withMachine = Color.white;
 
         public enum RoomTypes
         {
@@ -25,10 +28,14 @@ namespace Assets.Scripts
         void Start()
         {
             _light = GetComponentInChildren<Light>();
+            _renderer = GetComponent<Renderer>();
             if (Machine == null)
             {
-               // if(_light != null)
-                 //   _light.intensity = 0f;
+                // if(_light != null)
+                //   _light.intensity = 0f;
+
+                if (_renderer != null)
+                    _renderer.material.color = _withoutMachine;
             }
         }
 
@@ -38,7 +45,8 @@ namespace Assets.Scripts
 
         public void PlaceMachine(MachineData machine)
         {
-            if (HasMachine) return;
+            if (HasMachine)
+                return;
             if (machine.Prefab == null)
             {
                 Debug.LogWarningFormat("Prefab is not set for machine {0}", machine.name);
@@ -49,12 +57,17 @@ namespace Assets.Scripts
             GameManager.Instance.BuiltMachines.Add(machine);
             Machine.Place();
             UIBuildIcon.Instance.Hide();
+
+            if (_renderer != null)
+                _renderer.material.color = _withMachine;
         }
 
-        public void RemoveMachine()
+        public void OnMachineRemoved()
         {
             GameManager.Instance.BuiltMachines.Remove(Machine.MachineData);
-            Machine.Remove();
+
+            if (_renderer != null)
+                _renderer.material.color = _withoutMachine;
         }
 
         public void CustomOnMouseClick()

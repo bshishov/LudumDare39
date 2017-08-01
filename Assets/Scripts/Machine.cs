@@ -41,6 +41,7 @@ namespace Assets.Scripts
         }
 
         private Statuses _status;
+
         public Statuses Status
         {
             get { return _status; }
@@ -98,7 +99,11 @@ namespace Assets.Scripts
                     if (TickTimer(MachineData.TimeToDestroy))
                     {
                         _statusTimer = 0;
+                        var slot = GetSlot();
+                        if (slot != null)
+                            slot.OnMachineRemoved();
                         GameObject.Destroy(gameObject);
+
                         GainResources(MachineData.ReturnedResources);
                         _progressBar.Hide();
                         Destroy(_progressBar.gameObject);
@@ -130,6 +135,15 @@ namespace Assets.Scripts
                     }
                     break;
             }
+        }
+
+        public MachineSlot GetSlot()
+        {
+            var slot = GetComponentInParent<MachineSlot>();
+            if (slot != null && slot.Machine == this)
+                return slot;
+
+            return null;
         }
 
         private bool TickTimer(float time)
