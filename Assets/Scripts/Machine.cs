@@ -14,6 +14,9 @@ namespace Assets.Scripts
         private Sun _sun;
         private float _statusTimer;
 
+        public AudioClip BuildingSound;
+        public AudioClip RemovingSound;
+
         public float SunMultiplier
         {
             get
@@ -46,6 +49,19 @@ namespace Assets.Scripts
                 {
                     return;
                 }
+                if (_status != value)
+                {
+                    switch (value)
+                    {
+                        case Statuses.Building:
+                            GetComponent<AudioSource>().PlayOneShot(BuildingSound, 0.2f);
+                            break;
+                        case Statuses.Removing:
+                            GetComponent<AudioSource>().PlayOneShot(RemovingSound, 0.3f);
+                            break;
+                    }
+                }
+
                 if (StatusChanged != null)
                     StatusChanged(value);
                 _status = value;

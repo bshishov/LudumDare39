@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114752080137744582}
   - component: {fileID: 65450928611876550}
   - component: {fileID: 114452109129466754}
+  - component: {fileID: 82316181255916718}
   m_Layer: 0
   m_Name: GasHarvester
   m_TagString: Untagged
@@ -55,6 +56,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12, z: 0.2}
   m_Center: {x: -0.15436745, y: 0.47218227, z: 0}
+--- !u!82 &82316181255916718
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437321833258814}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114452109129466754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MachineData: {fileID: 11400000, guid: 52dec5ae3e5a51044900e63b75ceb01d, type: 2}
+  BuildingSound: {fileID: 8300000, guid: 9632feb1a4baa8b459f152b4233f34d1, type: 3}
+  RemovingSound: {fileID: 8300000, guid: 26361cfc840f2154c9bf740ac37f20fa, type: 3}
 --- !u!212 &212301131553942146
 SpriteRenderer:
   m_ObjectHideFlags: 1

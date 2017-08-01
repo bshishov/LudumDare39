@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class Sun : Singleton<MonoBehaviour>
+    public class Sun : Singleton<Sun>
     {
         private List<Material> _sunMaterials;
 
