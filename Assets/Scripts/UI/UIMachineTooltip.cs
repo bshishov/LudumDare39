@@ -26,7 +26,14 @@ namespace Assets.Scripts.UI
         {
             foreach (var res in _machineData.OutResources)
             {
-                OutResources.Add(res);
+                if (_machine == null)
+                {
+                    OutResources.Add(res);
+                }
+                else
+                {
+                    OutResources.Add(res.Resource, res.Amount * _machine.SunMultiplier);
+                }
             }
         }
 
