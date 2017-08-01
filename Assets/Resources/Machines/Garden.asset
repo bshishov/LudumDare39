@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Garden
   m_EditorClassIdentifier: 
   Name: Garden
-  Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Icon: {fileID: 21300002, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
+  Prefab: {fileID: 1392955411093810, guid: 5179fe840831e0c438637d2376b2340e, type: 2}
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
@@ -32,3 +32,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
     Amount: 50
   TimeToProduce: 1
+  SunPowerDependent: 0

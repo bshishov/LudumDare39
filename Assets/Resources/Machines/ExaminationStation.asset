@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ExaminationStation
   m_EditorClassIdentifier: 
   Name: Examination Station
-  Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 14a6a138cf328dd438ec8cb7d549d633, type: 3}
+  Prefab: {fileID: 1879200324227044, guid: aad8c8c54095aec4d81191e8b12d5eb4, type: 2}
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
@@ -32,3 +32,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: 89cb67b8d5d517c4d8e1a970033b8741, type: 2}
     Amount: 10
   TimeToProduce: 1
+  SunPowerDependent: 0

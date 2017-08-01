@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: MineralHarvester
   m_EditorClassIdentifier: 
   Name: Mineral Harvester
-  Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Icon: {fileID: 21300010, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
+  Prefab: {fileID: 1728860389603090, guid: ecafd9c6830c9294f9cdd071806b65fd, type: 2}
   RequiredMachines:
   - {fileID: 11400000, guid: 50693be621c257a419b70f7e2c57c459, type: 2}
   RequiredToBuildResources:
@@ -33,3 +33,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 750
   TimeToProduce: 1
+  SunPowerDependent: 0

@@ -185,6 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a70918b8899c34ca3dc5aa0844d65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlacementOffset: {x: 0, y: 0, z: 0}
+  PlacementOffset: {x: 0, y: -0.23, z: 0}
   Machine: {fileID: 0}
   RoomType: 0

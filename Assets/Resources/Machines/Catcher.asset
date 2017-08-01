@@ -39,3 +39,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
     Amount: 30
   TimeToProduce: 1
+  SunPowerDependent: 0
