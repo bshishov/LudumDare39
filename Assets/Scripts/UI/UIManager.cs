@@ -6,6 +6,7 @@ namespace Assets.Scripts.UI
 {
     public class UIManager : Singleton<UIManager>
     {
+        public GameObject HoveredObject { get { return _hoveredObject; } }
         public GameObject ProgressBar;
 
         private Camera _camera;

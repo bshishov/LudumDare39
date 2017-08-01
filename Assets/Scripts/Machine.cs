@@ -175,6 +175,8 @@ namespace Assets.Scripts
 
         private void OnStatusChange(Statuses newStatus)
         {
+            if (newStatus == Statuses.Crafting || newStatus == Statuses.Idle)
+                _progressBar.Hide();
         }
     }
 }
