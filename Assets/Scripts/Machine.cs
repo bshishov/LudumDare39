@@ -108,7 +108,7 @@ namespace Assets.Scripts
                         _progressBar.Hide();
                         Destroy(_progressBar.gameObject);
                     }
-                    _progressBar.Value = _statusTimer / MachineData.TimeToBuild;
+                    _progressBar.Value = _statusTimer / MachineData.TimeToDestroy;
                     break;
                 case Statuses.Crafting:
                     if (TickTimer(MachineData.TimeToProduce))
