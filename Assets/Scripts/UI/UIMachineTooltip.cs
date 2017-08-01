@@ -27,11 +27,7 @@ namespace Assets.Scripts.UI
         {
             foreach (var res in _machineData.OutResources)
             {
-                if (_machine == null)
-                {
-                    OutResources.Add(res);
-                }
-                else
+                if (_machine != null)
                 {
                     OutResources.Add(res.Resource, res.Amount * _machine.SunMultiplier);
                 }
@@ -43,6 +39,9 @@ namespace Assets.Scripts.UI
             _machineData = machineData;
             if (_machineData == null)
                 return;
+
+            if (_machine != null && _machine.MachineData != _machineData)
+                _machine = null;
 
             if (NameLabel != null)
             {
