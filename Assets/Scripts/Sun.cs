@@ -9,14 +9,24 @@ namespace Assets.Scripts
 {
     public class Sun : Singleton<MonoBehaviour>
     {
-        private List<Material> _sunMaterials;
+        public List<Sprite> Smiles;
 
+        private List<Material> _sunMaterials;
         private float _temperature = 1f;
+        private SpriteRenderer _smileRenderer;
+        
 
         public void Start()
         {
             _sunMaterials = GetComponentsInChildren<MeshRenderer>().Select(t => t.material).ToList();
             _sunMaterials.Add(GetComponent<MeshRenderer>().material);
+            _smileRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+
+        public void Update()
+        {
+            var i = Mathf.RoundToInt(_temperature * (Smiles.Count - 1));
+            _smileRenderer.sprite = Smiles[i];
         }
 
         public float Temperature
