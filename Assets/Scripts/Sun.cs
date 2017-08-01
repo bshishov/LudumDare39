@@ -9,14 +9,14 @@ namespace Assets.Scripts
 {
     public class Sun : Singleton<MonoBehaviour>
     {
-        public List<GameObject> SunParts;
         private List<Material> _sunMaterials;
 
         private float _temperature = 1f;
 
         public void Start()
         {
-            _sunMaterials = SunParts.Select(t => t.GetComponent<MeshRenderer>().material).ToList();
+            _sunMaterials = GetComponentsInChildren<MeshRenderer>().Select(t => t.material).ToList();
+            _sunMaterials.Add(GetComponent<MeshRenderer>().material);
         }
 
         public float Temperature
