@@ -15,18 +15,19 @@ namespace Assets.Scripts.UI
         {
             _follow = GetComponent<UIFollowSceneObject>();
             _image = GetComponent<Image>();
+            Hide();
         }
 
         public void Show(GameObject go)
         {
             _follow.SetTarget(go);
-            _image.CrossFadeAlpha(1f, 0.2f, false);
+            _image.CrossFadeAlpha(1f, 0.1f, false);
         }
 
         public void Hide()
         {
             _follow.SetTarget(null);
-            _image.CrossFadeAlpha(0f, 0.2f, false);
+            _image.CrossFadeAlpha(0f, 0.1f, false);
         }
     }
 }

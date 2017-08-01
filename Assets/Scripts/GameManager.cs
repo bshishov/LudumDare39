@@ -10,11 +10,13 @@ namespace Assets.Scripts
         public Dictionary<ResourceData, float> Resources = new Dictionary<ResourceData, float>();
 
         public List<MachineData> BuiltMachines = new List<MachineData>();
+        public List<ResourceAmount> ConsumePerSecond = new List<ResourceAmount>();
 
         public GameObject Sun;
         public float TimeForSunToGoOut;
 
         private Sun _sunComponent;
+        private float _timer = 0f;
 
         void Start()
         {
@@ -35,6 +37,21 @@ namespace Assets.Scripts
                 var newTemperature = oldTemperature - Time.deltaTime / TimeForSunToGoOut;
                 _sunComponent.Temperature = Mathf.Max(newTemperature, 0f);
             }
+
+            _timer += Time.deltaTime;
+            if (_timer > 1f)
+            {
+
+                _timer = 0;
+            }
+        }
+
+        private void Consume()
+        {
+            foreach (var res in ConsumePerSecond)
+            {
+                DecreaseResource(res);
+            }
         }
 
         public bool HasResourceAmount(ResourceAmount resource)
@@ -44,7 +61,7 @@ namespace Assets.Scripts
 
         public void DecreaseResource(ResourceAmount resource, float multiplier = 1)
         {
-            Resources[resource.Resource] = Resources[resource.Resource] - resource.Amount * multiplier;
+            Resources[resource.Resource] = Mathf.Max(Resources[resource.Resource] - resource.Amount * multiplier, 0);
         }
 
         public void IncreaseResource(ResourceAmount resource, float multiplier = 1)
