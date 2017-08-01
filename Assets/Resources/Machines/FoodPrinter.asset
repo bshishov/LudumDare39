@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: FoodPrinter
   m_EditorClassIdentifier: 
   Name: Food Printer
-  Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Icon: {fileID: 21300006, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
+  Prefab: {fileID: 1306598676076614, guid: 917e388a4ccb27e44aa8bc0ccfa14ef8, type: 2}
   RequiredMachines: []
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
@@ -34,3 +34,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
     Amount: 15
   TimeToProduce: 1
+  SunPowerDependent: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Dark Matter Harvester
   Icon: {fileID: 0}
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 1879200324227044, guid: aad8c8c54095aec4d81191e8b12d5eb4, type: 2}
   RequiredMachines:
   - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
   - {fileID: 11400000, guid: 50693be621c257a419b70f7e2c57c459, type: 2}
@@ -38,3 +38,4 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: 54d7fb70800fcc743bb2ae8bc558da85, type: 2}
     Amount: 1
   TimeToProduce: 30
+  SunPowerDependent: 0
