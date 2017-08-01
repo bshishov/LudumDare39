@@ -60,5 +60,17 @@ namespace Assets.Scripts
         {
             UIBuildingMenu.Instance.Show(this);
         }
+
+        public void OnMouseEnter()
+        {
+            if(!UIBuildingMenu.Instance.IsActive)
+                UIBuildIcon.Instance.Show(gameObject);
+        }
+
+        public void OnMouseLeave()
+        {
+            if (!UIBuildingMenu.Instance.IsActive)
+                UIBuildIcon.Instance.Hide();
+        }
     }
 }

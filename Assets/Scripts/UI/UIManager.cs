@@ -54,6 +54,7 @@ namespace Assets.Scripts.UI
                 if (Input.GetMouseButtonDown(0))
                 {
                     UIBuildingMenu.Instance.Hide();
+                    UIBuildIcon.Instance.Hide();
                 }
             }
         }

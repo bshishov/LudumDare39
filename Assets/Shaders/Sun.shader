@@ -45,7 +45,7 @@
 				return o;
 			}
 			
-			fixed3 frag (v2f i) : SV_Target
+			fixed4 frag (v2f i) : SV_Target
 			{	
 				fixed high = log(_Temperature * 2 + 1) * 2;
 				//fixed high = pow(_Temperature + 1, 4);
@@ -58,7 +58,8 @@
 				//fixed4 col1 = tex2D(_NoiseTex, i.uv1 + _Time.x) * _Color1;
 				//fixed4 col2 = tex2D(_NoiseTex, i.uv2 - _Time.x) * _Color2;				
 				
-				return color * n2 + n3 * color + pow(n1 * high, 2);
+				color = color * n2 + n3 * color + pow(n1 * high, 2);
+				return fixed4(color, 1);
 			}
 			ENDCG
 		}

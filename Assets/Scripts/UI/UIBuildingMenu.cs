@@ -10,10 +10,13 @@ namespace Assets.Scripts.UI
     public class UIBuildingMenu : Singleton<UIBuildingMenu>
     {
         public UIMachinesList MachinesList;
+        public bool IsActive { get { return _isActive; } }
+        
 
         private MachineData[] _machines;
         private CanvasGroup _canvasGroup;
         private UIFollowSceneObject _follow;
+        private bool _isActive;
 
         void Start()
         {
@@ -38,10 +41,12 @@ namespace Assets.Scripts.UI
             _canvasGroup.alpha = 0f;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
+            _isActive = false;
         }
 
         public void Show(MachineSlot slot)
         {
+            _isActive = true;
             _follow.SetTarget(slot.gameObject);
 
             if (MachinesList != null)
