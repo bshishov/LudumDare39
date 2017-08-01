@@ -48,6 +48,7 @@ namespace Assets.Scripts
             Machine.transform.localPosition = PlacementOffset;
             GameManager.Instance.BuiltMachines.Add(machine);
             Machine.Place();
+            UIBuildIcon.Instance.Hide();
         }
 
         public void RemoveMachine()
@@ -63,14 +64,20 @@ namespace Assets.Scripts
 
         public void OnMouseEnter()
         {
-            if(!UIBuildingMenu.Instance.IsActive)
-                UIBuildIcon.Instance.Show(gameObject);
+            if (!HasMachine)
+            {
+                if (!UIBuildingMenu.Instance.IsActive)
+                    UIBuildIcon.Instance.Show(gameObject);
+            }
         }
 
         public void OnMouseLeave()
         {
-            if (!UIBuildingMenu.Instance.IsActive)
-                UIBuildIcon.Instance.Hide();
+            if (!HasMachine)
+            {
+                if (!UIBuildingMenu.Instance.IsActive)
+                    UIBuildIcon.Instance.Hide();
+            }
         }
     }
 }
