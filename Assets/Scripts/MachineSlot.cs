@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.UI;
+﻿using Assets.Scripts.Data;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -54,7 +55,7 @@ namespace Assets.Scripts
             }
             Machine = Instantiate(machine.Prefab, this.transform).GetComponent<Machine>();
             Machine.transform.localPosition = PlacementOffset;
-            GameManager.Instance.BuiltMachines.Add(machine);
+            GameManager.Instance.BuiltMachines.Add(Machine);
             Machine.Place();
             UIBuildIcon.Instance.Hide();
 
@@ -64,7 +65,7 @@ namespace Assets.Scripts
 
         public void OnMachineRemoved()
         {
-            GameManager.Instance.BuiltMachines.Remove(Machine.MachineData);
+            GameManager.Instance.BuiltMachines.Remove(Machine);
 
             if (_renderer != null)
                 _renderer.material.color = _withoutMachine;

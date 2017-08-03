@@ -60,19 +60,19 @@ namespace Assets.Scripts.UI
 
                     // Then Enter
                     _hoveredObject = go;
-                    go.SendMessage("CustomOnMouseEnter", SendMessageOptions.DontRequireReceiver);
+                    go.BroadcastMessage("CustomOnMouseEnter", SendMessageOptions.DontRequireReceiver);
                 }
                 
-                go.SendMessage("CustomOnMouseOver", SendMessageOptions.DontRequireReceiver);
+                go.BroadcastMessage("CustomOnMouseOver", SendMessageOptions.DontRequireReceiver);
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    go.SendMessage("CustomOnMouseClick", 0, SendMessageOptions.DontRequireReceiver);
+                    go.BroadcastMessage("CustomOnMouseClick", 0, SendMessageOptions.DontRequireReceiver);
                 }
 
                 if (Input.GetMouseButtonDown(1))
                 {
-                    go.SendMessage("CustomOnRightMouseClick", 0, SendMessageOptions.DontRequireReceiver);
+                    go.BroadcastMessage("CustomOnRightMouseClick", 0, SendMessageOptions.DontRequireReceiver);
                 }
             }
             else
@@ -89,7 +89,7 @@ namespace Assets.Scripts.UI
         private void UnHover()
         {
             if (_hoveredObject != null)
-                _hoveredObject.SendMessage("CustomOnMouseLeave", SendMessageOptions.DontRequireReceiver);
+                _hoveredObject.BroadcastMessage("CustomOnMouseLeave", SendMessageOptions.DontRequireReceiver);
             _hoveredObject = null;
         }
 

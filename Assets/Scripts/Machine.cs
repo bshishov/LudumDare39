@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Data;
 using Assets.Scripts.UI;
 using Assets.Scripts.Utils;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Assets.Scripts
         public AudioClipWithVolume BuildingSound;
         public AudioClipWithVolume RemovingSound;
         public AudioClipWithVolume OutOfResourcesSound;
+        public AudioClipWithVolume BuildCompleted;
 
         public float SunMultiplier
         {
@@ -83,7 +85,7 @@ namespace Assets.Scripts
                     {
                         _statusTimer = 0;
                         _progressBar.Hide();
-
+                        PlaySound(BuildCompleted);
                         if (HasEnoughResourcesToProduce())
                         {
                             Status = Statuses.Crafting;

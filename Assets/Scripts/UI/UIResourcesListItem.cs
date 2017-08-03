@@ -11,30 +11,42 @@ namespace Assets.Scripts.UI
         public ResourceData Resource;
         public Text AmountLabel;
         public Image Icon;
+        public float StorageRedTreshold = 1000f;
         public bool ShowStorageAmount = false;
+        public bool CompareToStorage = false;
+
+        private float _amount = 0f;
 
         void Start ()
         {
-            if(Resource != null)
+            if (Resource != null)
+            {
                 Icon.sprite = Resource.Icon;
-        }
-
-        void OnMouseEnter(BaseEventData eventData)
-        {
-            UITooltip.Instance.Show(Resource);
-        }
-
-        void OnMouseLeave(BaseEventData eventData)
-        {
-            UITooltip.Instance.Hide();
+                Icon.preserveAspect = true;
+            }
         }
 
         void Update()
         {
-            if (ShowStorageAmount && Resource != null && AmountLabel != null)
+            if(Resource == null)
+                return;
+
+            if (ShowStorageAmount)
             {
-                var amount = GameManager.Instance.Resources[Resource];
-                AmountLabel.text = amount.ToString("F0");
+                SetAmount(GameManager.Instance.Resources[Resource]);
+                if (_amount < StorageRedTreshold)
+                    AmountLabel.color = Color.red;
+                else
+                    AmountLabel.color = Color.white;
+            }
+
+            if (CompareToStorage)
+            {
+                var storageAmount = GameManager.Instance.Resources[Resource];
+                if(_amount > storageAmount)
+                    AmountLabel.color = Color.red;
+                else
+                    AmountLabel.color = Color.white;
             }
         }
 
@@ -42,6 +54,7 @@ namespace Assets.Scripts.UI
         {
             if (Resource != null && AmountLabel != null)
             {
+                _amount = amount;
                 AmountLabel.text = amount.ToString("F0");
             }
         }

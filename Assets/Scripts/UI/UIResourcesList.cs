@@ -9,6 +9,7 @@ namespace Assets.Scripts.UI
         public GameObject ResourcesListItemPrefab;
         public bool LoadAllAtStart = false;
         public bool AutoTracking = false;
+        public bool CompareToStorage = false;
 
         private readonly Dictionary<ResourceData, UIResourcesListItem> _items = new Dictionary<ResourceData, UIResourcesListItem>();
 	
@@ -39,6 +40,7 @@ namespace Assets.Scripts.UI
                 var itemObject = (GameObject)Instantiate(ResourcesListItemPrefab, transform);
                 var item = itemObject.GetComponent<UIResourcesListItem>();
                 item.Resource = resource;
+                item.CompareToStorage = CompareToStorage;
                 item.SetAmount(amount);
 
                 if (AutoTracking)

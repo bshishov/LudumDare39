@@ -1,3 +1,4 @@
+using Assets.Scripts.Data;
 using Assets.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ namespace Assets.Scripts.UI
         public Image Icon;
         public Text StatusLabel;
         public Text RequiredTime;
+        public Text DescriptionLabel;
         //public Text _description;
 
         public UIMachinesList RequiredMachines;
@@ -21,6 +23,11 @@ namespace Assets.Scripts.UI
 
         void Start ()
         {
+            if (InResources != null)
+                InResources.CompareToStorage = true;
+
+            if (RequiredResources != null)
+                RequiredResources.CompareToStorage = true;
         }
         
         void Update ()
@@ -63,6 +70,22 @@ namespace Assets.Scripts.UI
                 {
                     Icon.sprite = null;
                 }
+            }
+
+            if (DescriptionLabel != null)
+            {
+                if (string.IsNullOrEmpty(machineData.Description))
+                {
+                    DescriptionLabel.gameObject.SetActive(false);
+                }
+                else
+                {
+                    DescriptionLabel.text = machineData.Description;
+                    DescriptionLabel.gameObject.SetActive(true);
+                }
+
+                
+
             }
 
             if (RequiredTime != null)

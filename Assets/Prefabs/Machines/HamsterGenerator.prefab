@@ -270,6 +270,9 @@ MonoBehaviour:
   OutOfResourcesSound:
     Clip: {fileID: 8300000, guid: 443e3f2c3756d7d43bf62df88b469198, type: 3}
     VolumeModifier: 0.5
+  BuildCompleted:
+    Clip: {fileID: 8300000, guid: b55adb89396c59f4baece5ea35682d7c, type: 3}
+    VolumeModifier: 0.5
 --- !u!114 &114592276982097746
 MonoBehaviour:
   m_ObjectHideFlags: 1

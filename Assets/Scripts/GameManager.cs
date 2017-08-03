@@ -14,7 +14,7 @@ namespace Assets.Scripts
         public bool IsActive { get; private set; }
         public Dictionary<ResourceData, float> Resources = new Dictionary<ResourceData, float>();
 
-        public List<MachineData> BuiltMachines = new List<MachineData>();
+        public List<Machine> BuiltMachines = new List<Machine>();
         public List<ResourceAmount> ConsumePerSecond = new List<ResourceAmount>();
 
         public GameObject Sun;
@@ -41,9 +41,10 @@ namespace Assets.Scripts
             }
             _sunComponent = Sun.GetComponent<Sun>();
 
-            var existingMachines = FindObjectsOfType<Machine>().Select(m => m.MachineData);
+            var existingMachines = FindObjectsOfType<Machine>();
             BuiltMachines.AddRange(existingMachines);
             IsActive = true;
+            StartCoroutine(CheckWin());
         }
 
         IEnumerator CheckWin()
