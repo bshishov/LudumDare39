@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Minerals
   Icon: {fileID: 21300010, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
-  BaseAmount: 750
+  BaseAmount: 1200
   Description: Mined from asteroids, used in construction workd all across the universe
   ResourceType: 0

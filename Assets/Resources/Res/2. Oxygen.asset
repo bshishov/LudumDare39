@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Oxygen
   Icon: {fileID: 21300002, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
-  BaseAmount: 8500
+  BaseAmount: 4000
   Description: People breathe it. Hamsters do too
   ResourceType: 0

@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f3f2f62d4d413cb4983d1d45d9ded228, type: 2}
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
-    Amount: 100
+    Amount: 200
   TimeToBuild: 10
   AllowedRoomType: 0
   ReturnedResources:

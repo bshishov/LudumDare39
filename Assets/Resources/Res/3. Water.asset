@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Water
   Icon: {fileID: 21300004, guid: 6545c03d9133eae439e88cc69aa8cde9, type: 3}
-  BaseAmount: 12000
+  BaseAmount: 3000
   Description: Crew needs this to survive, but it can be utilized in so many ways
   ResourceType: 0

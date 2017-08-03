@@ -20,21 +20,25 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 250
   - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
-    Amount: 20
+    Amount: 15
   TimeToBuild: 10
   AllowedRoomType: 0
   ReturnedResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 200
   - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
-    Amount: 30
+    Amount: 15
   TimeToDestroy: 10
   InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
-    Amount: 150
+    Amount: 200
+  - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
+    Amount: 10
+  - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
+    Amount: 10
   OutResources:
   - Resource: {fileID: 11400000, guid: 89cb67b8d5d517c4d8e1a970033b8741, type: 2}
-    Amount: 25
+    Amount: 30
   TimeToProduce: 3
   SunPowerDependent: 0

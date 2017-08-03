@@ -28,11 +28,11 @@ MonoBehaviour:
   InResourcesRequired: []
   InResources:
   - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
-    Amount: 5
+    Amount: 10
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
-    Amount: 50
+    Amount: 5
   OutResources:
   - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
-    Amount: 15
+    Amount: 65
   TimeToProduce: 3
   SunPowerDependent: 0

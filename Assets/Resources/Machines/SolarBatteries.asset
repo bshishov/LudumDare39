@@ -19,21 +19,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d68fbfff97b711c47ae6dba1dd4db70b, type: 2}
   RequiredToBuildResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
-    Amount: 150
+    Amount: 250
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
     Amount: 20
   TimeToBuild: 15
   AllowedRoomType: 1
   ReturnedResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
-    Amount: 100
+    Amount: 250
   - Resource: {fileID: 11400000, guid: 5ffdb400698db86489c18fd166059992, type: 2}
-    Amount: 5
+    Amount: 20
   TimeToDestroy: 10
   InResourcesRequired: []
   InResources: []
   OutResources:
   - Resource: {fileID: 11400000, guid: 0342543d00f789443accc1d1d0749f94, type: 2}
-    Amount: 400
+    Amount: 300
   TimeToProduce: 3
   SunPowerDependent: 1

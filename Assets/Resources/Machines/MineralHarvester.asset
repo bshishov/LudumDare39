@@ -21,7 +21,7 @@ MonoBehaviour:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 100
   - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
-    Amount: 5
+    Amount: 10
   TimeToBuild: 20
   AllowedRoomType: 4
   ReturnedResources:
@@ -37,5 +37,5 @@ MonoBehaviour:
   OutResources:
   - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
     Amount: 250
-  TimeToProduce: 7
+  TimeToProduce: 3
   SunPowerDependent: 0
