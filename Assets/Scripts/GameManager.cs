@@ -96,7 +96,7 @@ namespace Assets.Scripts
 
         public bool HasResourceAmount(ResourceAmount resource)
         {
-            return Resources[resource.Resource] > resource.Amount;
+            return Resources[resource.Resource] >= resource.Amount;
         }
 
         public void DecreaseResource(ResourceAmount resource, float multiplier = 1)
