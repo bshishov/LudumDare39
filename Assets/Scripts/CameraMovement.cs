@@ -37,8 +37,7 @@ namespace Assets.Scripts
 	
         void Update ()
         {
-            // Pan by RMB
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton((int)PanButton))
             {
                 if (!_isPanning)
                 {
