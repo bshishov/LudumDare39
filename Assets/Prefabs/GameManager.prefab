@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1960379013359086}
+  m_IsPrefabParent: 1
+--- !u!1 &1960379013359086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4960667918631962}
+  - component: {fileID: 114267780619880406}
+  - component: {fileID: 114017922585040568}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &4960667918631962
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960379013359086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.23793386, y: 0.7138031, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114017922585040568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960379013359086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc34289212bdc2b49b50c03e1ebd62e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114267780619880406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960379013359086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba1cf21e1ba42249b07ca4dd68af420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sun: {fileID: 0}
+  BuiltMachines: []
+  TimeForSunToGoOut: 360
+  BaseResources:
+  - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
+    Amount: 4000
+  - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
+    Amount: 3000
+  - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
+    Amount: 5000
+  - Resource: {fileID: 11400000, guid: b95f54060bda35244ae2604942b9fb84, type: 2}
+    Amount: 100
+  - Resource: {fileID: 11400000, guid: c597bcfea432d3a4e9c7d201cf8790c9, type: 2}
+    Amount: 1200
+  ConsumePerSecond:
+  - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
+    Amount: 60
+  - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
+    Amount: 25
+  - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
+    Amount: 35
+  WinningCondition:
+    Resource: {fileID: 11400000, guid: 89cb67b8d5d517c4d8e1a970033b8741, type: 2}
+    Amount: 6000
+  WinTimer: 500
+  LosingCondition:
+  - Resource: {fileID: 11400000, guid: e571622b7c7fdf54d8394ac242da1f37, type: 2}
+    Amount: 10
+  - Resource: {fileID: 11400000, guid: 5fdeb04aac19b7b42b475f663d175fd4, type: 2}
+    Amount: 10
+  - Resource: {fileID: 11400000, guid: 9f8c4d68acae7834dbab6bbedef1c74f, type: 2}
+    Amount: 10

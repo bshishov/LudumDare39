@@ -14,11 +14,6 @@ namespace Assets.Scripts
         void Start ()
         {
             _machineSlot = GetComponent<MachineSlot>();
-
-            if (Connections.Count > 0)
-            {
-                Debug.Log(CrewManager.Instance.FindRoute(this, Connections[0]));
-            }
         }
 	
         void Update ()

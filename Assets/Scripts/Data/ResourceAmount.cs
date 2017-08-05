@@ -1,14 +1,16 @@
 ﻿using System;
-using Assets.Scripts.Data;
 
-[Serializable]
-public class ResourceAmount
+namespace Assets.Scripts.Data
 {
-    public ResourceData Resource;
-    public float Amount;
-
-    public override string ToString()
+    [Serializable]
+    public class ResourceAmount
     {
-        return Resource.Name + " - " + Amount.ToString();
+        public ResourceData Resource;
+        public float Amount;
+
+        public override string ToString()
+        {
+            return Resource.Name + " - " + Amount.ToString();
+        }
     }
 }

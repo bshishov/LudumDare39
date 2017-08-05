@@ -21,7 +21,6 @@ namespace Assets.Scripts.UI
 
         void Awake ()
         {
-            print("START");
             _machines = Resources.LoadAll<MachineData>("Machines");
         }
         

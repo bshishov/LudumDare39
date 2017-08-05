@@ -7,7 +7,6 @@ namespace Assets.Scripts.Data
     {
         public string Name;
         public Sprite Icon;
-        public float BaseAmount;
         public string Description;
 
         public enum ResourceTypes

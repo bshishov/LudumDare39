@@ -13,12 +13,15 @@ namespace Assets.Scripts
     {
         public bool IsActive { get; private set; }
         public Dictionary<ResourceData, float> Resources = new Dictionary<ResourceData, float>();
-
-        public List<Machine> BuiltMachines = new List<Machine>();
-        public List<ResourceAmount> ConsumePerSecond = new List<ResourceAmount>();
-
         public GameObject Sun;
+
+        [HideInInspector]
+        public List<Machine> BuiltMachines = new List<Machine>();
+        
+        [Header("Level")]
         public float TimeForSunToGoOut;
+        public List<ResourceAmount> BaseResources;
+        public List<ResourceAmount> ConsumePerSecond = new List<ResourceAmount>();
 
         [Header("Winning")]
         public ResourceAmount WinningCondition;
@@ -35,10 +38,15 @@ namespace Assets.Scripts
         {
             var resources = UnityEngine.Resources.LoadAll<ResourceData>("Res"); 
             Debug.Log(string.Format("Loaded {0} resources", resources.Length));
+
+            // Load all resources
             foreach(var resource in resources)
-            {
-                Resources.Add(resource, resource.BaseAmount);
-            }
+                Resources.Add(resource, 0);
+
+            // Set base values
+            foreach (var resource in BaseResources)
+                Resources[resource.Resource] = resource.Amount;
+
             _sunComponent = Sun.GetComponent<Sun>();
 
             var existingMachines = FindObjectsOfType<Machine>();
@@ -116,23 +124,38 @@ namespace Assets.Scripts
 
         public void Restart()
         {
+            LoadLevel(SceneManager.GetActiveScene().name);
+        }
+
+        public void LoadLevel(string sceneName)
+        {
             var fader = UIScreenFader.Instance;
             if (fader != null)
             {
                 fader.FadeIn();
-                StartCoroutine(RestartDelayed(fader.FadeTime));
+                StartCoroutine(LoadDelayed(fader.FadeTime, sceneName));
+            }
+            else
+            {
+                StartCoroutine(LoadDelayed(0.1f, sceneName));
             }
         }
 
-        private IEnumerator RestartDelayed(float delay)
+        private IEnumerator LoadDelayed(float delay, string sceneName)
         {
             yield return new WaitForSeconds(delay);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(sceneName);
         }
 
         public void ToggleAudio()
         {
             AudioListener.volume = 1 - AudioListener.volume;
+        }
+
+        public void ExitToMenu()
+        {
+            //LoadLevel(SceneManager.GetSceneByBuildIndex(0).name);
+            LoadLevel("title");
         }
     }
 }
