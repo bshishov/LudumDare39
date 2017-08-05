@@ -8907,7 +8907,7 @@ Prefab:
     - target: {fileID: 114665129558714560, guid: 95f4450ef5a1d254ca33d3b30b05b912,
         type: 2}
       propertyPath: m_Text
-      value: '5000
+      value: '6000
 
 '
       objectReference: {fileID: 0}

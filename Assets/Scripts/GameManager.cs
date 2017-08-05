@@ -26,10 +26,10 @@ namespace Assets.Scripts
 
         [Header("Game Over")]
         public ResourceAmount[] LosingCondition;
-
-        private bool _active;
+        
         private Sun _sunComponent;
         private float _timer = 0f;
+        private bool _checkForWin = false;
 
         void Start()
         {
@@ -50,10 +50,7 @@ namespace Assets.Scripts
         IEnumerator CheckWin()
         {
             yield return new WaitForSeconds(WinTimer);
-            if (HasResourceAmount(WinningCondition))
-            {
-                UIManager.Instance.ShowWinScreen();
-            }
+            _checkForWin = true;
         }
 
         void Update ()
@@ -79,9 +76,15 @@ namespace Assets.Scripts
                     if (Resources[amount.Resource] < amount.Amount)
                     {
                         UIManager.Instance.ShowLoseScreen();
-                        _active = false;
+                        IsActive = false;
                         break;
                     }
+                }
+
+                if (_checkForWin && HasResourceAmount(WinningCondition))
+                {
+                    UIManager.Instance.ShowWinScreen();
+                    _checkForWin = false;
                 }
             }
         }
@@ -101,12 +104,14 @@ namespace Assets.Scripts
 
         public void DecreaseResource(ResourceAmount resource, float multiplier = 1)
         {
-            Resources[resource.Resource] = Mathf.Max(Resources[resource.Resource] - resource.Amount * multiplier, 0);
+            if(IsActive)
+                Resources[resource.Resource] = Mathf.Max(Resources[resource.Resource] - resource.Amount * multiplier, 0);
         }
 
         public void IncreaseResource(ResourceAmount resource, float multiplier = 1)
         {
-            Resources[resource.Resource] = resource.Amount * multiplier + Resources[resource.Resource];
+            if(IsActive)
+                Resources[resource.Resource] = resource.Amount * multiplier + Resources[resource.Resource];
         }
 
         public void Restart()

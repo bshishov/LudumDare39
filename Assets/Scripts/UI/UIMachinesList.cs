@@ -13,8 +13,8 @@ namespace Assets.Scripts.UI
         
         void Start ()
         {
-            if (MachineListItemPrefab != null)
-                Debug.LogWarning("Prefab for machines list is not set");
+            if (MachineListItemPrefab == null)
+                Debug.LogWarning("Prefab for machines list is not set", gameObject);
         }
 
         public void Add(MachineData machine, MachineSlot slot = null)

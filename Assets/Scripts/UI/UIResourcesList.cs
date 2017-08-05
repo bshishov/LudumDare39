@@ -15,8 +15,8 @@ namespace Assets.Scripts.UI
 	
         void Start()
         {
-            if (ResourcesListItemPrefab != null)
-                Debug.LogWarning("Prefab for resources list is not set");
+            if (ResourcesListItemPrefab == null)
+                Debug.LogWarning("Prefab for resources list is not set", gameObject);
 
             if (LoadAllAtStart)
             {
