@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4160363307834218}
   - component: {fileID: 33015340569787046}
   - component: {fileID: 23652705994997160}
+  - component: {fileID: 114996054502048018}
   m_Layer: 0
   m_Name: Intersection
   m_TagString: Untagged
@@ -80,3 +81,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1476258850321204}
   m_Mesh: {fileID: 4300002, guid: 66a860fb7551e7c4ba7de38879e7050d, type: 3}
+--- !u!114 &114996054502048018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1476258850321204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd660454e725264c86c95c9a26345b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Connections: []
